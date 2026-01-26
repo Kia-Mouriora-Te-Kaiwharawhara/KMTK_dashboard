@@ -1,23 +1,33 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors")
 
 module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
       navblue: 'var(--nav-blue)',
       orange: 'var(--zealandia-orange)',
-    },
-    fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      primarytp: 'var(--primarytp)',
     },
     extend: {
+      fontFamily: {
+        sans: [
+          "Lato",
+          "ui-sans-serif",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+        serif: ["Knockout", "serif"],
+      },
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        128: "32rem",
+        144: "36rem",
       },
       borderRadius: {
         '4xl': '2rem',
@@ -30,8 +40,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderColor: ['focus-visible'],
-      opacity: ['disabled'],
-    }
-  }
+      borderColor: ["focus-visible"],
+      opacity: ["disabled"],
+    },
+  },
 }
