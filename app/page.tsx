@@ -1,21 +1,21 @@
+import { ImageCycle } from "@/components/image-cycle";
+import { TextBox } from "@/components/text-box";
 import Image from "next/image";
 
+const imagePairs = [
+  { image: '/tui.jpg', text: 'Tui in the Catchment' },
+  { image: '/arial_catchment.jpg', text: 'Aerial View of the Catchment' },
+]
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className=""
-          src="/tui.jpg"
-          alt="Tui bird in tree at zealandia"
-          width={1000}
-          height={1000}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Welcome!
-          </h1>
+    <div className="min-w-screen flex min-h-screen bg-center bg-cover" style={{ backgroundImage: "url('/arial_catchment.avif')" }}>
+      <main className="min-h-screen w-full  flex">
+        <div className="w-1/3">
+          <TextBox text="The Kia Mouriora te Kaiwharawhara dashboard is designed to display ecological data about Te Kaiwharawhara. Navigate through information using the navigation bar and learn about the history, health, and conservation efforts of the region." />
+          <ImageCycle pairs={imagePairs} header="Birds in the Catchment" header_url="https://www.visitzealandia.com/learn/nature-and-wildlife/"></ImageCycle>
+        </div>
+        <div className="w-2/3">
+
         </div>
       </main>
     </div>
