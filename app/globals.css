@@ -29,6 +29,7 @@
   --color-zealandia-orange: var(--zealandia-orange);
   --color-nav-blue: var(--nav-blue);
   --color-roto-blue: var(--roto-blue);
+  --color-kawakawa-green: var(--kawakawa-green);
 }
 
 :root {
@@ -41,6 +42,7 @@
   --zealandia-orange: #f26422;
   --nav-blue: #07454B;
   --roto-blue: #046aa4;
+  --kawakawa-green: #4b6f45;
 }
 
 
