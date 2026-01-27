@@ -15,7 +15,7 @@ export const historicaldata =
                     "event": "Before being used as a tip and sealed over, Appleton Park was once a heavily forested stream bank that the Te M\u0101hanga branch of the Kaiwharawhara stream flowed through. The stream had open access to daylight and supported an abundance of native biodiversity. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/appleton/1929.png",
+                            "src": "/img/historicaldata/appleton/1929.png",
                             "alt": "Appleton Park 1929"
                         }
                     ],
@@ -35,7 +35,7 @@ export const historicaldata =
                     "event": "Dumping begins at Appleton Park, formerly called Chaytor Street landfill. Toxic waste includes heavy metals, asbestos, radioactive material, other hazardous substances. The Te M\u0101hanga branch of the Kaiwharawhara stream is tunneled beneath the landfill and accumulates harmful leachate that flows downstream. The water quality of the Kaiwharawhara significantly degrades.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/appleton/1935.png",
+                            "src": "/img/historicaldata/appleton/1935.png",
                             "alt": "Appleton Park 1935"
                         }
                     ],
@@ -56,7 +56,7 @@ export const historicaldata =
                     "event": "1965, Appleton Park is established over Chaytor Street landfill. Toxic waste remains below which the Te M\u0101hanga branch of the Kaiwharawhara stream continues to flow through. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/appleton/1965.png",
+                            "src": "/img/historicaldata/appleton/1965.png",
                             "alt": "Appleton Park 1965-8-17"
                         }
                     ],
@@ -75,7 +75,7 @@ export const historicaldata =
                     "event": "2024, a bike and walking path is built on Appleton Park.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/appleton/2025.png",
+                            "src": "/img/historicaldata/appleton/2025.png",
                             "alt": "Appleton Park 2025-2-12"
                         }
                     ],
@@ -94,7 +94,7 @@ export const historicaldata =
                     "event": "Appleton Park, formerly called Chaytor Street landfill, was used as a rubbish tip. According to Greater Wellington Regional Council and Wellington City Council, the site was filled with fuel oil, corrugated iron, petrol tines, lubricating drums, steam boilers, tar drums, iron castings, car bodies, sheep carcasses and discards from an electricity powerhouse. The site was closed in 1940, sealed with a layer of clay, and grass was planted on top. More information about this location can be found on Wellington City Council archives.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/appleton/2025.png",
+                            "src": "/img/historicaldata/appleton/2025.png",
                             "alt": "Appleton Park 2025"
                         }
                     ],
@@ -121,7 +121,7 @@ export const historicaldata =
                     "event": "The Kaiwharawhara estuary is the only remaining non-piped estuary in Wellington City that flows into Wellington Harbour. It is an important place for native fish species that must migrate between fresh and saltwater to complete their life cycles. Here, inanga (Galaxias maculatus)--a primary species of 'whitebait'--lay their eggs in low-hanging vegetation during a king tide. Restoring native vegetation along the estuary is therefore vital for enhancing the inanga population. Unfortunately, the estuary currently accumulates pollution, which is harmful to the species that rely on it.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/estuary/2025.png",
+                            "src": "/img/historicaldata/estuary/2025.png",
                             "alt": "Estuary 2025-1-16"
                         }
                     ],
@@ -149,7 +149,7 @@ export const historicaldata =
                     "event": "From 1946 to 1973, Ian Galloway Park operated as a rubbish tip. According to Greater Wellington Regional Council, a variety of industrial wastes were dumped here, including 500 kg of cyanide (a poisonous chemical) encased in concrete drums, as well as large quantities of industrial waste from the demolition of Miramar Gasworks. The Te M\u0101hanga branch of the Kaiwharawhara Stream runs beneath the surface of this former landfill and accumulates toxic leachate. Furthermore, injuries and cuts sustained on the park sports field often lead to infection due to the toxins in the ground.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/ian_galloway/galloway.jpg",
+                            "src": "/img/historicaldata/ian_galloway/galloway.jpg",
                             "alt": "Ian Galloway Park 2025"
                         }
                     ],
@@ -177,7 +177,7 @@ export const historicaldata =
                     "event": "Testing and site visits from 1995 revealed rust colored leachate within the Te M\u0101hanga branch of the Kaiwharawhara stream. As of 1998, high levels of iron exceeded the ANZECC Aquatic Ecosystems guideline level. More information about this site can be found here: (Page 279) ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/otari/otari.jpg",
+                            "src": "/img/historicaldata/otari/otari.jpg",
                             "alt": "\u014ctari-Wilton's Bush 1995"
                         }
                     ],
@@ -197,7 +197,7 @@ export const historicaldata =
                     "event": "Pua o te R\u0113inga (Dactylanthus taylorii) seeds were gifted by the Ng\u0101ti Maniapoto and Ng\u0101ti Rereahu and sown at \u014ctari-Wilton's Bush. It was also translocated to Zealandia on the same date. This plant attaches itself to native tree roots and grows underground for several years. Endangered pekapeka, native bats, were once a primary pollinator. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
+                            "src": "/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
                             "alt": "\u014ctari-Wilton's Bush 2020-10-13"
                         }
                     ],
@@ -224,7 +224,7 @@ export const historicaldata =
                     "event": "There are an estimated 83,000 people buried at Karori Cemetery, the second largest cemetery in Aotearoa New Zealand. This is slightly over twice as many 39,000 people currently living within the Kaiwharawhara catchment. The cemetery reflects the unique history of Wellington City. Friends of Karori Cemetery care for this place, by leading tours and restoring graves. Friends of Karori Cemetery, with guidance from mana whenua Taranaki Wh\u0101nui ki te Upoko o te Ika and support from Wellington City Council also advocate for the Plastic Free Urup\u0101 initiative which seaks to minimise the use of plastic flowers on graves that eventually flow into and harm the mouri or lifeforce of the Kaiwharawhara stream. The Plastic Free Urup\u0101 initiative works with diverse communities to create culturally appriopriate and environmentally friendly solutions to grave decortations. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/karori_cemetery/rose_garden.jpg",
+                            "src": "/img/historicaldata/karori_cemetery/rose_garden.jpg",
                             "alt": "Karori Cemetery 2025"
                         }
                     ],
@@ -252,7 +252,7 @@ export const historicaldata =
                     "event": "Like elsewhere in Wellington City, fundamental water infrastructure, including sewerage systems, have exceeded its intended use-life and are in vital need of significant repairs. A lack of comprehensive stormwater mitigation also exacerbates this issue by increasing the frequency of unconsented overflows of untreated wastewater. Wastewater leaks, depicted in this picture taken in Trelissick Park, harm the mouri or lifeforce of the Kaiwharawhara catchment. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/trelissick/sewagepipe.jpeg",
+                            "src": "/img/historicaldata/trelissick/sewagepipe.jpeg",
                             "alt": "Trelissick Park 2025"
                         }
                     ],
@@ -279,7 +279,7 @@ export const historicaldata =
                     "event": "In 2022, a massive landslide took place in \u014ctari-Wilton's Bush. Thousands of tonnes of soil collapsed after a string of wet weather event and blocked the flow of the Te M\u0101hanga branch of the Kaiwharawhara stream. Native replanting efforts continue -- this reduces the rate of sedimentation entering the stream which is important to maintain the healh of native biodiversity. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/otari/land_slip.jpg",
+                            "src": "/img/historicaldata/otari/land_slip.jpg",
                             "alt": "\u014ctari land slip 2022"
                         }
                     ],
@@ -307,7 +307,7 @@ export const historicaldata =
                     "event": "St. John's Pool, located inside Birdwood Reserve, was once a popular swimming spot for Karori residents. Zealandia Te M\u0101ra a T\u0101ne is located at the m\u0101t\u0101puna or headwater of the Te M\u0101hanga branch of the Kaiwharawhara stream which flows into this pool. While it's no longer commonly used as a swimming location for people due to safety concerns relating to water quality, toitoi fish (Gobiomorphus cotidianus) have recently made their way downstream from Roto M\u0101hanga inside the ecosanctuary. With the return of toitoi, and hopeful eventual return of k\u0101kahi (native freshwater mussels), these waters may become safe for people to swim in once again. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/birdwood/swimming_hole.jpg",
+                            "src": "/img/historicaldata/birdwood/swimming_hole.jpg",
                             "alt": "St John's Pool 2025"
                         }
                     ],
@@ -328,7 +328,7 @@ export const historicaldata =
                     "event": "St. John's Pool, located inside Birdwood Reserve, was once a popular swimming spot for Karori residents. Zealandia Te M\u0101ra a T\u0101ne is located at the m\u0101t\u0101puna or headwater of the Te M\u0101hanga branch of the Kaiwharawhara stream which flows into this pool. While it's no longer commonly used as a swimming location for people due to safety concerns relating to water quality, toitoi fish (Gobiomorphus cotidianus) have recently made their way downstream from Roto M\u0101hanga inside the ecosanctuary. With the return of toitoi, and hopeful eventual return of k\u0101kahi (native freshwater mussels), these waters may become safe for people to swim in once again. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/birdwood/swimming_hole_old.jpg",
+                            "src": "/img/historicaldata/birdwood/swimming_hole_old.jpg",
                             "alt": "St John's Pool 1933"
                         }
                     ],
@@ -358,7 +358,7 @@ export const historicaldata =
                     "event": "An additional 150 k\u0101kahi/freshwater mussels were collected from Roto K\u014dhangapiripiri in collaboration with Taranaki Wh\u0101nui ki te Upoko o te Ika and translocated to Zealandia Te M\u0101ra a T\u0101ne.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/kakahi.jpg",
+                            "src": "/img/historicaldata/zealandia/kakahi.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
                     ],
@@ -377,7 +377,7 @@ export const historicaldata =
                     "event": "Pua o te R\u0113inga (Dactylanthus taylorii) seeds were gifted by the Ng\u0101ti Maniapoto and Ng\u0101ti Rereahu and sown at Zealandia Te M\u0101ra a T\u0101ne. It was also translocated to \u014ctari-Wilton's Bush on the same date. This plant attaches itself to native tree roots and grows underground for several years. Endangered pekapeka, native bats, were once a primary pollinator. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
+                            "src": "/img/historicaldata/zealandia/pua_o_te_reinga.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2020-10-13"
                         }
                     ],
@@ -396,7 +396,7 @@ export const historicaldata =
                     "event": "64 pirita/mistletoe seeds were sown. This propogation is considered to have failed.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2004-5-20"
                         }
                     ],
@@ -415,7 +415,7 @@ export const historicaldata =
                     "event": "First successful propogation of pirita/mistletoe in Zealandia Te M\u0101ra a T\u0101ne from a source population in Upper Hutt. The seeds were sown onto 19 trees.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2018-5-2"
                         }
                     ],
@@ -434,7 +434,7 @@ export const historicaldata =
                     "event": "As of October 2022, nine host trees still present pirita/mistletoe.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2022"
                         }
                     ],
@@ -453,7 +453,7 @@ export const historicaldata =
                     "event": "A number of pirita/mistletoe seeds were sown onto various host plants. The seeds were provided from Wairarapa.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-5-16"
                         }
                     ],
@@ -472,7 +472,7 @@ export const historicaldata =
                     "event": "Five of the pirita/mistletoe seeds sown on 16 May were observed to have sprouted.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/pirita.jpg",
+                            "src": "/img/historicaldata/zealandia/pirita.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024"
                         }
                     ],
@@ -491,7 +491,7 @@ export const historicaldata =
                     "event": "White mistletoe was sown throughout the week onto 23 host plants. Seeds were provided from the Wairarapa.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/white_mistletoe.jpg",
+                            "src": "/img/historicaldata/zealandia/white_mistletoe.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2023-11-22"
                         }
                     ],
@@ -510,7 +510,7 @@ export const historicaldata =
                     "event": "41 pepeketua/Hamilton's frogs were released from their boxed enclosures. These were the last animals within Zealandia Te M\u0101ra a T\u0101ne to be released from captivity.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/frog.jpg",
+                            "src": "/img/historicaldata/zealandia/frog.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-8-22"
                         }
                     ],
@@ -529,7 +529,7 @@ export const historicaldata =
                     "event": "25 pepeketua/Hamilton's frogs were released from their boxed enclosures. These were the last animals within Zealandia Te M\u0101ra a T\u0101ne to be released from captivity.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/frog.jpg",
+                            "src": "/img/historicaldata/zealandia/frog.jpg",
                             "alt": "Zealandia Te M\u0101ra a T\u0101ne 2024-8-30"
                         }
                     ],
@@ -556,7 +556,7 @@ export const historicaldata =
                     "event": "160 toitoi (Gobiomorphus cotidianus) were translocated from Roto K\u014dhangapiripiri. 158 were successfully released into Roto M\u0101hanga in Zealandia Te M\u0101ra a T\u0101ne.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/toitoi.jpg",
+                            "src": "/img/historicaldata/zealandia/toitoi.jpg",
                             "alt": "Roto M\u0101hanga 2023"
                         }
                     ],
@@ -575,7 +575,7 @@ export const historicaldata =
                     "event": "159 toitoi were translocated from Roto K\u014dhangapiripiri and successfully released into Roto M\u0101hanga in Zealandia Te M\u0101ra a T\u0101ne.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/toitoi.jpg",
+                            "src": "/img/historicaldata/zealandia/toitoi.jpg",
                             "alt": "Roto M\u0101hanga 2024"
                         }
                     ],
@@ -594,7 +594,7 @@ export const historicaldata =
                     "event": "The planned three-year release of toitoi into Roto M\u0101hanga will conclude in 2025.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/toitoi.jpg",
+                            "src": "/img/historicaldata/zealandia/toitoi.jpg",
                             "alt": "Roto M\u0101hanga 2025"
                         }
                     ],
@@ -613,7 +613,7 @@ export const historicaldata =
                     "event": "Projects were undertaken in 2011 to remove brown trout from Roto M\u0101hanga. ",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/brown_trout.jpg",
+                            "src": "/img/historicaldata/zealandia/brown_trout.jpg",
                             "alt": "Roto M\u0101hanga 2011"
                         }
                     ],
@@ -640,7 +640,7 @@ export const historicaldata =
                     "event": "Eurasian perch (Perca fluviatilis) were first introduced to Roto Kawau in 1874 for recreational fishing. This invasive species dominated the aquatic ecosystem and harmed native biodiversity.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "src": "/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 1874"
                         }
                     ],
@@ -660,7 +660,7 @@ export const historicaldata =
                     "event": "Boat electrofishing and netting techniques removed 3946 Eurasian perch from Roto Kawau (22% of the total estimated perch biomass).",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "src": "/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2007"
                         }
                     ],
@@ -680,7 +680,7 @@ export const historicaldata =
                     "event": "Eurasian perch removal efforts in 2008, 2009, and 2011 yielded an additional 11,091 Eurasian perch.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "src": "/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2011"
                         }
                     ],
@@ -700,7 +700,7 @@ export const historicaldata =
                     "event": "Beginning 17 February, boat electrofishing and gill netting was undertaken to remove 2316 Eurasian perch from the lower reservoir. This was the 6th removal of perch from the lake to occur since February 2007.",
                     "img": [
                         {
-                            "src": "public/img/historicaldata/zealandia/eurasian_perch.jpg",
+                            "src": "/img/historicaldata/zealandia/eurasian_perch.jpg",
                             "alt": "Roto Kawau 2020-2-17"
                         }
                     ],

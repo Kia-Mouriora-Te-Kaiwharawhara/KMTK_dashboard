@@ -158,7 +158,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                 </div>
 
                 {/* Timeline dot and connector */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center relative">
                     <div className="relative z-10">
                         <TimelineIcon icon={icon} color={iconColor} status={status} iconSize={iconsize} />
                     </div>
@@ -166,9 +166,9 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                         <motion.div
                             layout
                             initial={false}
-                            animate={{ height: selected ? '8rem' : '1rem' }}
+                            animate={{ height: selected ? '10rem' : '2rem' }}
                             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                            className="w-0.5 bg-timeline-line mt-1"
+                            className="w-0.5 bg-timeline-line mt-1 place-items-center"
                             style={{ height: selected ? '4rem' : '2rem' }}
                         />
                     )}

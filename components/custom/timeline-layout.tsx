@@ -32,6 +32,8 @@ interface TimelineLayoutProps {
     animate?: boolean;
     connectorColor?: 'primary' | 'secondary' | 'muted' | 'accent';
     className?: string;
+    selectedID: string;
+    setSelectedID: (id: string) => void;
 }
 
 export const TimelineLayout = ({
@@ -42,8 +44,9 @@ export const TimelineLayout = ({
                                    animate = true,
                                    connectorColor,
                                    className,
+                                   selectedID,
+                                   setSelectedID
                                }: TimelineLayoutProps) => {
-    const [selectedID, setSelectedID] = useState('0');
 
     return (
         <Timeline size={size} className={className}>
