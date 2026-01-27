@@ -1,4 +1,3 @@
-import { HoverTranslation } from "@/components/hover-translation";
 import { ImageCycle } from "@/components/image-cycle";
 import { TextBox } from "@/components/text-box";
 import Image from "next/image";
