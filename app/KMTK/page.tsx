@@ -1,8 +1,13 @@
 'use client';
 
 import { TimelineLayout } from "@/components/custom/timeline-layout";
+import { historicaldata } from "@/lib/historicaldata";
 
 export default function KMTK() {
+
+    historicaldata.locations.forEach((location) => {
+
+    })
   return (
       <div className="flex flex-row w-full justify-between p-2">
         <TimelineLayout
