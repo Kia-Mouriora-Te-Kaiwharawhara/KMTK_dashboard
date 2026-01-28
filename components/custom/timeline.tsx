@@ -168,7 +168,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                             initial={false}
                             animate={{ height: selected ? '10rem' : '2rem' }}
                             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                            className="w-0.5 bg-timeline-line mt-1 place-items-center"
+                            className="w-0.5 bg-timeline-line mt-1 self-center"
                             style={{ height: selected ? '4rem' : '2rem' }}
                         />
                     )}
@@ -383,7 +383,7 @@ const TimelineDescription = React.forwardRef<
     HTMLParagraphElement,
     React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-    <p ref={ref} className={cn('max-w-lg text-lg text-muted-foreground', className)} {...props} />
+    <p ref={ref} className={cn('max-w-2xl text-lg text-muted-foreground', className)} {...props} />
 ));
 TimelineDescription.displayName = 'TimelineDescription';
 

@@ -63,6 +63,7 @@ export const TimelineLayout = ({
                 >
                     <TimelineItem
                         id={item.id}
+                        data-timeline-id={item.id}
                         selectedID={selectedID}
                         setSelectedID={setSelectedID}
                         date={item.date}
