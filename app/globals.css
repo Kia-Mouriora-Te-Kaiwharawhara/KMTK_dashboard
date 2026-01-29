@@ -31,6 +31,7 @@
   --color-roto-blue: var(--roto-blue);
   --color-timeline-line: var(--timeline-line);
   --color-timeline-icon: var(--timeline-icon);
+  --color-kawakawa-green: var(--kawakawa-green);
 }
 
 :root {
@@ -45,6 +46,7 @@
   --roto-blue: #046aa4;
   --timeline-line: #046aa4;
   --timeline-icon: #f26422;
+  --kawakawa-green: #4b6f45;
 }
 
 
