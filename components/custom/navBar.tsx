@@ -15,7 +15,7 @@ function NavBar() {
                     src="/KMTKDashboardLogo.jpg"
                     alt="Kia Mouriora Te Kaiwharawhara Logo"
                     onClick={() => router.push("/")}
-                    className={"cursor-pointer rounded-md"}
+                    className={"cursor-pointer rounded-md hover:opacity-80"}
                     width={200}
                     height={200}
                 />
