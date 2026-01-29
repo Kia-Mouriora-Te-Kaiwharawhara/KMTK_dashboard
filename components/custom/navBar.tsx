@@ -21,19 +21,20 @@ function NavBar() {
                         height={200}
                     />
                 </div>
-                <Image
-                    src="/ZealandiaDashboardLogo.jpg"
-                    alt="Zealandia Logo"
-                    onClick={() => router.push("https://www.visitzealandia.com")}
-                    className={"hover:shadow-accent cursor-pointer rounded-md"}
-                    width={200}
-                    height={200}
-                />
+                <a href={'https://www.visitzealandia.com'} target="_blank" rel="noopener noreferrer">
+                    <Image
+                        src="/ZealandiaDashboardLogo.jpg"
+                        alt="Zealandia Logo"
+                        className={"hover:shadow-accent cursor-pointer rounded-md"}
+                        width={200}
+                        height={200}
+                    />
+                </a>
             </div>
             <div className={"flex items-center justify-between w-full"}>
                 <NavButton route={"/map"} text={"Catchment Map and Data"}></NavButton>
                 <NavButton route={"/KMTK"} text={"Region History"}></NavButton>
-                <NavButton route={"/about"} text={"Our Mission"}></NavButton>
+                <NavButton route={"/home"} text={"Our Mission"}></NavButton>
                 <NavButton route={"/resources"} text={"Get Involved"}></NavButton>
             </div>
         </div>
