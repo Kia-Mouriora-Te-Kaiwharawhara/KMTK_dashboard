@@ -24,8 +24,8 @@ function NavBar() {
                 <NavButton route={"/partners"} text={"Our Partners"}></NavButton>
                 <NavButton route={"/map"} text={"Catchment Map and Data"}></NavButton>
                 <NavButton route={"/KMTK"} text={"Region History"}></NavButton>
-                <NavButton route={"/about"} text={"Our Mission"}></NavButton>
-                <NavButton route={"/resources"} text={"Get Involved"}></NavButton>
+                <NavButton route={"/mission"} text={"Our Mission"}></NavButton>
+                <NavButton route={"/contribute"} text={"Get Involved"}></NavButton>
             </div>
         </div>
     );
