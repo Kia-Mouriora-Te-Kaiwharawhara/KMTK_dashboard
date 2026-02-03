@@ -72,7 +72,7 @@ export default function Partners() {
                     "Victoria University of Wellington." +
                     "\n\nTogether, we work closely with local businesses, community groups, and other organisations to restore the " +
                     "mouri of Te Kaiwharawhara whaitua."}
-                className={'whitespace-break-spaces text-left text-nav-blue text-xl pb-12'}
+                className={'whitespace-break-spaces text-left text-nav-blue text-xl pb-12 rounded-md'}
                 type={'light'}
             >
             </TextBox>

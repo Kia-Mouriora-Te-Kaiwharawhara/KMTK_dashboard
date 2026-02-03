@@ -26,28 +26,28 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-zealandia-orange: var(--zealandia-orange);
+  --color-goldenrod: var(--goldenrod);
   --color-nav-blue: var(--nav-blue);
-  --color-roto-blue: var(--roto-blue);
+  --color-sea-blue: var(--sea-blue);
   --color-timeline-line: var(--timeline-line);
   --color-timeline-icon: var(--timeline-icon);
-  --color-kawakawa-green: var(--kawakawa-green);
+  --color-deep-brown: var(--deep-brown);
   --color-kowahi-gold: var(--kowahi-gold);
 }
 
 :root {
   --radius: 0.625rem;
-  --background: rgb(234,237,227);
-  --foreground: oklch(0.145 0 0);
-  --primary: rgb(234,237,227);
-  --primary-tp: rgba(234, 237, 227, 0.719);
-  --secondary: rgb(213, 225, 197);
-  --zealandia-orange: #f26422;
-  --nav-blue: #07454B;
-  --roto-blue: #046aa4;
-  --timeline-line: #046aa4;
-  --timeline-icon: #f26422;
-  --kawakawa-green: #4b6f45;
+  --background: #eaede3;
+  --foreground:  #297b8f;
+  --primary: rgb(213, 225, 197);
+  --primary-tp: rgba(213, 225, 197, 0.85);
+  --secondary: #fad4b1;
+  --goldenrod: #feb41d;
+  --nav-blue: #03404f;
+  --sea-blue: #297b8f;
+  --timeline-line: #4F2803;
+  --timeline-icon: #feb41d;
+  --deep-brown: #4F2803;
   --kowahi-gold: rgb(238, 180, 29);
 }
 

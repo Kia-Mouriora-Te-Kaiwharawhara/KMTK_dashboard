@@ -11,7 +11,7 @@ import { X } from "lucide-react"
 
 function Footer() {
     return (
-        <div className="w-full bg-kawakawa-green text-sm flex justify-center">
+        <div className="w-full bg-deep-brown text-sm flex justify-center">
             <Drawer
                 direction={'bottom'}
             >
@@ -20,7 +20,7 @@ function Footer() {
                         Provide Your Feedback!
                     </Button>
                 </DrawerTrigger>
-                <DrawerContent className="p-3 bg-kawakawa-green data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=top]:max-h-[80vh]">
+                <DrawerContent className="p-3 bg-deep-brown data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=top]:max-h-[80vh]">
                     <DrawerHeader className={'flex flex-row justify-between p-0'}>
                         <DrawerTitle className={'text-3xl text-primary text-left pb-6 px-3'}>
                             Help us improve our website, provide your feedback!

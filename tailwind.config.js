@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     colors: {
       navblue: 'var(--nav-blue)',
-      orange: 'var(--zealandia-orange)',
+      orange: 'var(--goldenrod)',
       primarytp: 'var(--primarytp)',
     },
     extend: {

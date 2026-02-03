@@ -9,7 +9,7 @@ function NavBar() {
     const router = useRouter();
 
     return (
-        <div className={"flex bg-nav-blue w-full"}>
+        <div className={"flex bg-nav-blue w-full shadow-md"}>
             <div className={"flex flex-row"}>
                 <Image
                     src="/KMTKDashboardLogo.jpg"
