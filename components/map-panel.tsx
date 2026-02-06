@@ -5,6 +5,7 @@ import { useState } from "react";
 import Layer from "@arcgis/core/layers/Layer";
 import Legend from "./legend";
 import { SidePanel } from "./side-panel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 const ArcGISMap = dynamic(() => import("./map"), { ssr: false });
 
@@ -18,8 +19,20 @@ export default function MapPanel({ id }: { id: string }) {
 
   return (
     <div className="flex h-full">
-      <SidePanel> 
-        <div className="space-y-2">
+  
+      <SidePanel className="overflow-y-auto max-h-full w-50 bg-primary"> 
+        <Tabs defaultValue="Layers" className="w-full ">
+          <TabsList className="fixed">
+            <div className="flex-wrap bg-primary w-full p-1 ">
+            <TabsTrigger value="Layers">Layers</TabsTrigger>
+            <TabsTrigger value="Legend">Legend</TabsTrigger>
+            <TabsTrigger value="BaseMap">Base Map</TabsTrigger>
+            <TabsTrigger value="Raw Data">Data</TabsTrigger></div>
+          </TabsList>
+          <div className="p-7 w-full" />
+          <div className="max-h-150 overflow-scroll w-full" >
+          <TabsContent value="Layers" className="w-full h-full">
+          <div className="space-y-2">
           <h3 className="font-semibold">Layers</h3>
           {layers.map((layer) => (
             <label key={layer.id} className="flex gap-2">
@@ -32,6 +45,13 @@ export default function MapPanel({ id }: { id: string }) {
             </label>
           ))}
         </div>
+          </TabsContent>
+          <TabsContent value="Legend" className="w-full h-full"><Legend layers={layers} /></TabsContent>
+          <TabsContent value="BaseMap" className="w-full h-full"><p>Base Map options coming soon!</p></TabsContent>
+          <TabsContent value="Raw Data" className="w-full h-full"><p>Raw Data coming soon!</p></TabsContent>
+            </div>
+        </Tabs>
+
       </SidePanel>
 
       {/* Map takes full remaining space */}
