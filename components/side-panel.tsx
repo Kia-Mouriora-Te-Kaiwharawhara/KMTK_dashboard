@@ -33,7 +33,7 @@ export function SidePanel({
       {/* Sidebar */}
       <div
         className={`fixed lg:relative left-0 top-0 h-screen lg:h-auto bg-primary border-r border-deep-brown rounded-sm z-40 transition-all duration-300 ease-in-out transform ${
-          isOpen ? "translate-x-0 w-64 p-4" : "-translate-x-full lg:translate-x-0 w-64 lg:w-0 overflow-hidden"
+          isOpen ? "translate-x-0 min-w-64 p-4" : "-translate-x-full lg:translate-x-0 w-64 lg:w-0 overflow-hidden"
         }`}
       >
         {children}
