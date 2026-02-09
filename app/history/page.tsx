@@ -5,9 +5,13 @@ import {ReactNode, useState, useEffect} from "react";
 import {ScrollArea} from "@/components/ui/scroll-area"
 import Layer from "@arcgis/core/layers/Layer";
 import dynamic from "next/dynamic";
-import Papa, { ParseResult } from 'papaparse';
+import Papa, {ParseResult} from 'papaparse';
+import {TextBox} from "@/components/text-box";
+import {DropdownMenuContent, DropdownMenuTrigger, DropdownMenu} from "@/components/ui/dropdown-menu";
+import {Checkbox} from "@/components/ui/checkbox";
+import {Button} from "@/components/ui/button";
 
-const ArcGISMap = dynamic(() => import("../../components/map"), { ssr: false });
+const ArcGISMap = dynamic(() => import("../../components/map"), {ssr: false});
 
 interface TimelineElement {
     id: string;
@@ -21,6 +25,7 @@ interface TimelineElement {
     loading?: boolean;
     error?: string;
     images: string[];
+    filter?: string;
 }
 
 interface CsvDataRow {
@@ -37,6 +42,10 @@ export default function KMTK() {
     const [layers, setLayers] = useState<Layer[]>([]);
 
     const [timelineItems, setTimeLineItems] = useState<TimelineElement[]>([]);
+
+    // timeline filter states
+    const [historical, setHistorical] = useState(true);
+    const [cultural, setCultural] = useState(true);
 
     let id = 0;
 
@@ -58,7 +67,7 @@ export default function KMTK() {
             results.data.forEach((item: CsvDataRow) => {
                 const images = [];
 
-                if(prevItem && prevItem.title === item.DisplayTitle) {
+                if (prevItem && prevItem.title === item.DisplayTitle) {
                     // if the current item has the same DisplayTitle as the previous item, add its photo
                     prevItem.images.push(item.photoLink);
                 } else {
@@ -81,7 +90,7 @@ export default function KMTK() {
         }
 
         loadCSV();
-        })
+    })
 
 
     timelineItems.sort((a, b) => parseInt(a.date) - parseInt(b.date));
@@ -91,26 +100,54 @@ export default function KMTK() {
         item.id = index.toString();
     })
 
-    const [selectedID, setSelectedID] = useState((id-1).toString());
+    const [selectedID, setSelectedID] = useState((id - 1).toString());
+
+    const [currentItems, setCurrentItems] = useState<TimelineElement[]>([]);
+
+    useEffect(() => {
+        let tempItems = timelineItems;
+
+        if(!historical) {
+            tempItems = tempItems.filter(item => item.filter === "historical");
+        }
+
+        setCurrentItems(tempItems);
+
+    }, [historical, cultural, timelineItems]);
 
     return (
-        <div className="flex flex-row w-full h-screen justify-between">
-            <ScrollArea className="w-[60%] h-[100vh]" id={'timelineScrollArea'}>
+        <div className="flex lg:flex-row flex-col w-full h-screen justify-between">
+            <ScrollArea className="lg:w-[60%] lg:h-[100vh] w-full h-[60%]" id={'timelineScrollArea'}>
+                <div className={"flex flex-row"}>
+                    <TextBox
+                        text={"History of Reclamation of Te Kaiwharwhara"}
+                        type={"dark"}
+                        className={"text-2xl w-8/10"}
+                    />
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="default" className={"self-center p-3 w-1/10 text-m"}>Filter</Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className={"bg-primary"}>
+                            <Checkbox checked={historical} onCheckedChange={setHistorical}/>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
                 <TimelineLayout
                     className={'shadow-black'}
                     connectorColor={'accent'}
                     iconColor={'accent'}
                     selectedID={selectedID}
                     setSelectedID={setSelectedID}
-                    items={timelineItems}
+                    items={currentItems}
                 />
             </ScrollArea>
-                <div className={"w-[40vw] h-full] bg-white place-items-center"}>
-                    <ArcGISMap
-                        id={"bda891e30a384c4f9108fd9fdb6b07e9"}
-                        onLayersLoaded={setLayers}
-                    />
-                </div>
+            <div className={"lg:w-[40vw] lg:h-full w-full h-[40vh] bg-white place-items-center"}>
+                <ArcGISMap
+                    id={"bda891e30a384c4f9108fd9fdb6b07e9"}
+                    onLayersLoaded={setLayers}
+                />
+            </div>
         </div>
 
     );
