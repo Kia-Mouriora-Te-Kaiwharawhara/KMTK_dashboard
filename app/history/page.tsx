@@ -1,17 +1,17 @@
 'use client';
 
 import {TimelineColor, TimelineLayout, TimelineSize, TimelineStatus} from "@/components/custom/timeline-layout";
-import {ReactNode, useState, useEffect} from "react";
+import {ReactNode, useState, useEffect, useRef} from "react";
 import {ScrollArea} from "@/components/ui/scroll-area"
 import Layer from "@arcgis/core/layers/Layer";
-import dynamic from "next/dynamic";
 import Papa, {ParseResult} from 'papaparse';
 import {TextBox} from "@/components/text-box";
 import {DropdownMenuContent, DropdownMenuTrigger, DropdownMenu} from "@/components/ui/dropdown-menu";
 import {Checkbox} from "@/components/ui/checkbox";
 import {Button} from "@/components/ui/button";
+import dynamic from "next/dynamic";
 
-const ArcGISMap = dynamic(() => import("../../components/map"), {ssr: false});
+const HistoricMap = dynamic(() => import("../../components/historical-map"), { ssr: false });
 
 interface TimelineElement {
     id: string;
@@ -33,19 +33,37 @@ interface CsvDataRow {
     DisplayTitle: string;
     PhotoTitle: string;
     description: string;
+    filter: string;
     photoLink: string;
     source: string;
+    Lat: string;
+    Lon: string;
 }
+
+interface filterData {
+    name: string;
+    active: boolean;
+}
+
+type PointFeature = {
+    id: string;
+    x: number;
+    y: number;
+    title?: string;
+    description?: string;
+    filter?: string;
+};
 
 export default function KMTK() {
 
     const [layers, setLayers] = useState<Layer[]>([]);
 
+    // states to store the TOTAL list of items from the csv
     const [timelineItems, setTimeLineItems] = useState<TimelineElement[]>([]);
+    const [mapPoints, setMapPoints] = useState<PointFeature[]>([]);
 
     // timeline filter states
-    const [historical, setHistorical] = useState(true);
-    const [cultural, setCultural] = useState(true);
+    const [filters, setFilters] = useState<filterData[]>([]);
 
     let id = 0;
 
@@ -62,9 +80,11 @@ export default function KMTK() {
             });
 
             const items: TimelineElement[] = [];
+            const points: PointFeature[] = [];
+            const filtersToAdd: filterData[] = [];
             let prevItem: TimelineElement;
 
-            results.data.forEach((item: CsvDataRow) => {
+            results.data.forEach((item: CsvDataRow, index) => {
                 const images = [];
 
                 if (prevItem && prevItem.title === item.DisplayTitle) {
@@ -73,47 +93,73 @@ export default function KMTK() {
                 } else {
                     images.push(item.photoLink);
 
+                    // create new timeline element
                     const newItem: TimelineElement = {
-                        id: String(id++),
+                        id: String(id),
                         date: String(item.Year),
                         title: item.DisplayTitle,
                         description: item.description,
                         images: images,
+                        filter: item.filter
                     }
                     items.push(newItem);
 
+                    // create new filter if doesn't exist
+                    if (item.filter && !filtersToAdd.find(filter => filter.name === item.filter)) {
+                        filtersToAdd.push({name: item.filter, active: true});
+                    }
+
+                    if(item.Lat && item.Lon) {
+                        // create new point for the map
+                        const newPoint: PointFeature = {
+                            id: String(id),
+                            x: Number(item.Lon),
+                            y: Number(item.Lat),
+                            title: item.DisplayTitle,
+                            description: item.description,
+                            filter: item.filter
+                        }
+                        points.push(newPoint);
+                    }
+
                     prevItem = newItem;
+                    id++
                 }
             });
 
             setTimeLineItems(items);
+            setMapPoints(points);
+            setFilters(filtersToAdd);
         }
 
         loadCSV();
-    })
+    }, []);
 
 
     timelineItems.sort((a, b) => parseInt(a.date) - parseInt(b.date));
     timelineItems.reverse()
 
-    timelineItems.forEach((item, index) => {
-        item.id = index.toString();
-    })
-
     const [selectedID, setSelectedID] = useState((id - 1).toString());
 
+    // states for storing current state of elements to be filtered
     const [currentItems, setCurrentItems] = useState<TimelineElement[]>([]);
+    const [currentPoints, setCurrentPoints] = useState<PointFeature[]>([]);
 
     useEffect(() => {
-        let tempItems = timelineItems;
+        const tempItems: TimelineElement[] = [];
+        const tempPoints: PointFeature[] = [];
 
-        if(!historical) {
-            tempItems = tempItems.filter(item => item.filter === "historical");
-        }
+        filters.forEach((filter: filterData) => {
+            if(filter.active) {
+                timelineItems.filter(item => item.filter === filter.name).forEach((item) => tempItems.push(item));
+                mapPoints.filter(point => point.filter === filter.name).forEach((item) => tempPoints.push(item));
+            }
+        });
 
         setCurrentItems(tempItems);
+        setCurrentPoints(tempPoints);
 
-    }, [historical, cultural, timelineItems]);
+    }, [filters]);
 
     return (
         <div className="flex lg:flex-row flex-col w-full h-screen justify-between">
@@ -129,7 +175,19 @@ export default function KMTK() {
                             <Button variant="default" className={"self-center p-3 w-1/10 text-m"}>Filter</Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className={"bg-primary"}>
-                            <Checkbox checked={historical} onCheckedChange={(historical) => setHistorical(historical as boolean)}/>
+                            {filters.map((filter: filterData, index) => (
+                                <div key={index} className={"flex flex-row gap-3"}>
+                                    <Checkbox
+                                        className={"bg-primary-tp"}
+                                        checked={filter.active}
+                                        onCheckedChange={() => {
+                                            setFilters(prev =>
+                                                prev.map((f, i) => (i === index ? { ...f, active: !f.active } : f)))
+                                        }}
+                                    />
+                                    <p>{filter.name}</p>
+                                </div>
+                            ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
@@ -143,9 +201,13 @@ export default function KMTK() {
                 />
             </ScrollArea>
             <div className={"lg:w-[40vw] lg:h-full w-full h-[40vh] bg-white place-items-center"}>
-                <ArcGISMap
-                    id={"bda891e30a384c4f9108fd9fdb6b07e9"}
+                {/*66be186453d84308b26257021d6fb664*/}
+                <HistoricMap
+                    id={""}
+                    selectedId={selectedID}
+                    setSelectedId={setSelectedID}
                     onLayersLoaded={setLayers}
+                    points={currentPoints}
                 />
             </div>
         </div>
