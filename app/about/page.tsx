@@ -67,11 +67,7 @@ export default function Partners() {
                 className={'whitespace-break-spaces text-left text-nav-blue text-xl pb-12 rounded-md'}
              type="blue"
             >
-                Kia Mouriora Te Kaiwharawhara is a collaborative 
-                whole-of-catchment restoration initiative. 
-                The 100-year vision is that the mouri of Te 
-                Kaiwharawhara is healed.
-                <br/><br/>
+        
                 Kia Mouriora Te Kaiwharawhara is a collaboration 
                 led by Zealandia Te Māra a Tāne in partnership with 
                 mana whenua Taranaki Whānui ki Te Upoko o Te Ika. 
@@ -85,7 +81,7 @@ export default function Partners() {
                 to restore the mouri of Te Kaiwharawhara whaitua.
             </TextBox>
             <TextBox
-                text={"The Sanctuary to Sea Strategy"}
+                text={"The Kia Mouriora Te Kaiwharawhara Sanctuary to Sea Strategy"}
                 type={"dark-inline"}
                 className={'text-3xl text-left bg-sea-blue text-secondary'}
             />
@@ -93,27 +89,27 @@ export default function Partners() {
                 className={'whitespace-break-spaces text-nav-blue text-left text-xl pb-12 rounded-md'}
                 type="blue"
             >
-                Sanctuary to Sea is a whole-of-catchment multi-stakeholder 
+                Kia Mouriora Te Kaiwharawhara Sanctuary to Sea is a whole-of-catchment multi-stakeholder 
                 restoration initiative aimed at restoring freshwater and 
                 terrestrial ecosystems in Te Kaiwharawhara, by doing so 
                 enhancing Wellington’s natural capital from “Sanctuary to Sea.”
                 <br/><br/>
                 Te Kaiwharawhara whaitua is unique in Wellington City: it is the 
                 largest stream system and only catchment with an open estuary on 
-                the Wellington harbour. It has many special values — a rich 
+                Te Whanganui-a-Tara, Wellington harbour. It has many special values — a rich 
                 cultural history, many species of native fish, and the unique 
                 Zealandia santuary at the headwaters, providing a source of 
                 dispersal for unique New Zealand wildlife. 
                 <br/><br/>
-                The goal of the Sanctuary to Sea initiative is the 100-year 
+                The goal of the Kia Mouriora Te Kaiwharawhara Sanctuary to Sea initiative is the 100-year 
                 vision: in 100 years, the catchment is a healthy freshwater 
-                and forested ecosystem in a n urban setting, which sustains 
+                and forested ecosystem in an urban setting, which sustains 
                 an abundant native biodiversity and enhances the opportunities 
                 for Wellingtonians to have a nature-rich future. 
                 <br/><br/>
                 The project objectives will be met through activites across 
-                three interconnected dimensions: Te Awa — the stream, Te 
-                Ngahere — the forest, and Ngā Tāngata — the people. Te Ao Maori 
+                three interconnected dimensions: Te Awa — The Stream, Te 
+                Ngahere — The Forest, and Te Tangata — The People. Te Ao Māori 
                 will also provide a foundation to the decision making process. 
             </TextBox>
             <div className="w-full m-3 pb-3 flex">
@@ -160,10 +156,10 @@ export default function Partners() {
                     className="m-3 md:w-1/9 md:h-1/9  sm:w-5 sm:h-5"
                 />
                 <div>
-                    <h1 className="text-3xl text-vivid-orange m-3">Ngā Tāngata - The People</h1>
+                    <h1 className="text-3xl text-vivid-orange m-3">Te Tangata - The People</h1>
                     <ul className="list-disc text-left text-vivid-orange text-xl m-3 ml-5">
                         <li>Start the community on a path to recognize the catchment as a living entity and encourage active involvement in restoration</li>
-                        <li>support mana whenua in reconnecting to Te Kaiwharawhara catchment </li>
+                        <li>Support mana whenua in reconnecting to Te Kaiwharawhara catchment </li>
                         <li>Ensure our work is exemplory in the area of catchment restoration and provide leadership in urban sustainability</li>
                     </ul>
                 </div>
@@ -173,7 +169,7 @@ export default function Partners() {
                 Read about the strategy <a href="https://www.visitzealandia.com/about/our-work/sanctuary-to-sea/" target="_blank" className="text-nav-blue hover:underline">here</a>.
             </p>
             <TextBox
-                secondaryText={"Kia Mouriora Te Kaiwharwhwara Strategy Group"}
+                secondaryText={"Kia Mouriora Te Kaiwharwhara Strategy Group"}
                 type={"dark-inline"}
                 className={'text-3xl text-left'}
             />
