@@ -28,13 +28,13 @@ export default function getInvolved() {
                 </div>
                 <div className="flex justify-center items-center w-full mt-4 sm:flex-wrap">
                     <a className="text-blue-500 hover:underline" href={"https://www.visitzealandia.com/learn/"} target="_blank">
-                        Zelandia Learn Page
+                        Zealandia Learn Page
                     </a>
                     <a className="text-blue-500 hover:underline ml-4" href={"https://www.visitzealandia.com/news-stories/"} target="_blank">
-                        Zelandia News & Stories
+                        Zealandia News & Stories
                     </a>
                     <a className="text-blue-500 hover:underline ml-4" href={"https://www.visitzealandia.com/whats-on/ "} target="_blank">
-                        Zelandia Upcoming Events
+                        Zealandia Upcoming Events
                     </a>
                 </div>
             </Story>
