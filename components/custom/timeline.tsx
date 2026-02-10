@@ -230,14 +230,13 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                                 <Carousel className="w-full h-full flex flex-col items-stretch" setApi={setApi}
                                           opts={{watchDrag: false}}
                                 >
-                                    <CarouselContent className={'h-[50vh] w-full flex items-stretch'}>
+                                    <CarouselContent className={'lg:h-[50vh] w-full flex items-stretch'}>
                                         {images && images.map((img, index) => (
                                             <CarouselItem key={index} className="h-full w-full flex items-stretch">
-                                                <div className="relative w-full h-full">
-                                                    <Image
+                                                <div className="relative w-full h-full items-center justify-center flex">
+                                                    <img
                                                         src={img}
                                                         alt={""}
-                                                        fill
                                                         className="object-cover"
                                                     />
                                                 </div>
