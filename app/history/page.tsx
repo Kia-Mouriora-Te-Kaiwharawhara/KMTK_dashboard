@@ -11,6 +11,7 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import {Checkbox} from "@/components/ui/checkbox";
 import {Button} from "@/components/ui/button";
 import dynamic from "next/dynamic";
+import { ArrowDownUp } from 'lucide-react';
 
 const HistoricMap = dynamic(() => import("../../components/historical-map"), { ssr: false });
 
@@ -68,6 +69,13 @@ export default function KMTK() {
 
     // timeline filter states
     const [filters, setFilters] = useState<filterData[]>([]);
+
+    // keeps track of item order
+    const [ascending, setAscending] = useState(true);
+
+    // states for storing current state of elements to be filtered
+    const [currentItems, setCurrentItems] = useState<TimelineElement[]>([]);
+    const [currentPoints, setCurrentPoints] = useState<PointFeature[]>([]);
 
     let id = 0;
 
@@ -144,15 +152,22 @@ export default function KMTK() {
         loadCSV();
     }, []);
 
+    // sorts the items by date order
+    function sortTimelineItems(items: TimelineElement[]): TimelineElement[] {
+        if(ascending) {
+            items.sort((a, b) => parseInt(a.date) - parseInt(b.date));
+        } else {
+            items.sort((a, b) => parseInt(b.date) - parseInt(a.date));
+        }
 
-    timelineItems.sort((a, b) => parseInt(a.date) - parseInt(b.date));
-    timelineItems.reverse()
+        return items
+    }
+
+    useEffect(() => {
+        setCurrentItems(prev => sortTimelineItems(prev));
+    }, [ascending]);
 
     const [selectedID, setSelectedID] = useState((id - 1).toString());
-
-    // states for storing current state of elements to be filtered
-    const [currentItems, setCurrentItems] = useState<TimelineElement[]>([]);
-    const [currentPoints, setCurrentPoints] = useState<PointFeature[]>([]);
 
     useEffect(() => {
         const tempItems: TimelineElement[] = [];
@@ -165,10 +180,22 @@ export default function KMTK() {
             }
         });
 
-        setCurrentItems(tempItems);
+        setCurrentItems(sortTimelineItems(tempItems));
         setCurrentPoints(tempPoints);
 
-    }, [filters]);
+    }, [filters, ascending]);
+
+    function ScrollToTimelineElement(): void {
+        const container = document.getElementById('timelineScrollArea');
+        if (!container) return;
+        const target = container.querySelector(`[data-timeline-id="${selectedID}"]`) as HTMLElement | null;
+        if (!target) return;
+        target.scrollIntoView({block: 'center', behavior: 'smooth'});
+    }
+
+    useEffect(() => {
+        ScrollToTimelineElement();
+    }, [selectedID]);
 
     return (
         <div className="flex lg:flex-row flex-col w-full h-screen justify-between">
@@ -203,6 +230,9 @@ export default function KMTK() {
                             ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
+                    <Button className={"self-center m-1 hover:bg-nav-blue"} onClick={() => setAscending(!ascending)}>
+                        <ArrowDownUp className={"text-vivid-azure"} />
+                    </Button>
                 </div>
                 <TimelineLayout
                     className={'shadow-black'}
