@@ -14,6 +14,7 @@ import {LayerCollapse } from "./collapsible";
 type Props = {
   id: string;
   layerData: DataLayer[];
+  filters: FilterLL;
 };
 interface FilterLL {
   name: string;
@@ -30,68 +31,15 @@ interface DataLayer {
   layer: Layer;
 }
 
-const filters: FilterLL = {
-  name: "Home",
-  next: [
-    {
-      name: "The People",
-      next: [
-        { name: "Infrastructure", next: [
-          { name: "Water", next: [
-            { name: "Stormwater", next: [] },
-            { name: "Other", next: [] },
-          ] },
-          { name: "Buildings", next: [
-            { name: "Residential", next: [] },
-            { name: "Commercial", next: [] },
-            { name: "Industrial", next: [] },
-          ] },
-          { name: "Utility", next: [
-            { name: "Power", next: [
-              { name: "Renewable", next: [] },
-              { name: "Non-renewable", next: [] },
-              { name: "Other", next: [] },
-            ] },
-            { name: "Waste", next: [] },
-            { name: "Other", next: [] },
-          ] },
-        ] },
-        { name: "Restoration", next: [
-          { name: "Bush", next: [] },
-          { name: "Animal", next: [
-            { name: "Reintroduction", next: [] },
-            { name: "Predator Control", next: [] },
-          ] },
-          { name: "Water Quality", next: [] },
-          { name: "Other", next: [] },
-        ] },
-        { name: "Community", next: [] },
-      ]
-    },
-    { name: "The Forest", next: [
-      { name: "Plants", next: [
-        { name: "Trees", next: [] },
-        { name: "Shrubs", next: [] },
-        { name: "Other", next: [] },
-      ]},
-      { name: "Animals", next: [
-        { name: "Birds", next: [] },
-        { name: "Insects", next: [] },
-        { name: "Mammals", next: [] },
-        { name: "Reptiles", next: [] },
-        { name: "Molusks", next: [] },
-        { name: "Other", next: [] },
-      ]}
-    ]},
-    { name: "The Stream", next: []},
-  ] 
-}
-
-export default function ArcGISMap({ id, layerData }: Props) {
+export default function ArcGISMap({ id, layerData, filters }: Props) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const basemapRef = useRef<HTMLDivElement | null>(null);
-
+  const trimClass = (name: string): string => {
+    const numIndex = name.search('/');
+    if (numIndex === -1) return name;
+    return name.substring(0, numIndex);
+  }
  const [layers, setLayers] = useState<DataLayer[]>([]);
   const isSubFilter = (filter: FilterLL, tags: string[]): boolean => {
     if (filter.name === "Home") return true;
@@ -189,11 +137,11 @@ const [prevFilter, setPrevFilter] = useState<FilterLL[]>([]);
             setActiveFilter(prev);
           }
         }}>
-          {prevFilter.length > 1 ? prevFilter[prevFilter.length - 1].name : ""}
+          {prevFilter.length > 1 ? trimClass(prevFilter[prevFilter.length - 1].name) : ""}
           <ChevronLeft className="ml-4"/>
         </button>
       )}
-      <p className="ml-4 font-bold">{activeFilter.name !== "Home" ? activeFilter.name : ""}</p>
+      <p className="ml-4 font-bold">{activeFilter.name !== "Home" ? trimClass(activeFilter.name) : ""}</p>
       {activeFilter.next.length > 0 && (
         // <ChevronRight className="ml-2" />
         <div className="h-[3vh] border-l border-primary ml-4"/>
@@ -203,7 +151,7 @@ const [prevFilter, setPrevFilter] = useState<FilterLL[]>([]);
           setPrevFilter(prevFilter.concat(activeFilter));
           setActiveFilter(f);
         }}>
-          {f.name}
+          {trimClass(f.name)}
         </button>
       ))}
     </div>

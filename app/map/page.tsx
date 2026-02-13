@@ -8,15 +8,22 @@ function toggleLayer(layer: __esri.Layer) {
 
 
 export default async function Map() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/layers`, {
+  const resLD = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/layers`, {
     cache: "no-store",
   });
 
-  const layerData = await res.json();
+  const layerData = await resLD.json();
+
+  const resLF = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/layers/filters`, {
+    cache: "no-store",
+  });
+
+  const filters = await resLF.json();
+  
   return (
     <div className="w-full h-5/10">
 
-      <ArcGISMap id="bda891e30a384c4f9108fd9fdb6b07e9" layerData={layerData.data} />
+      <ArcGISMap id="bda891e30a384c4f9108fd9fdb6b07e9" layerData={layerData.data} filters={filters.data} />
     </div>
   );
 }
