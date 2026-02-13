@@ -11,7 +11,7 @@ import { X } from "lucide-react"
 
 function Footer() {
     return (
-        <div className="w-full bg-deep-brown text-sm flex justify-center bottom-0">
+        <div className="w-full bg-deep-brown text-sm flex flex-row justify-bottom-0 justify-center">
             <Drawer
                 direction={'bottom'}
             >
@@ -37,7 +37,7 @@ function Footer() {
                         <div className="w-full h-[60vh] overflow-hidden">
                             <iframe
                                 title="Feedback form"
-                                src="https://forms.office.com/Pages/ResponsePage.aspx?id=BO8_au8HkUyVn5vb2cF-r11hxu73f3ZGkdEG50pH_QhUQkdJSjUxSzBYUjU0RENDR1RJM0c3S1IwWS4u&embed=true"
+                                src="https://docs.google.com/forms/d/e/1FAIpQLSdPpDSe9lcVTmK7zUJmD5pMdQB_kTxXQ_0x098JNx5g7B10wg/viewform?embedded=true"
                                 className="w-full h-full border-0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                                 allowFullScreen

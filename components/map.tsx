@@ -1,5 +1,5 @@
 "use client";
-//https://docs.google.com/spreadsheets/d/e/2PACX-1vT0AFqyUMbOY1ZLyCHP4YE2Gl7rTxb3e5AWCYkRoKmVloPIc0DRd9vG2GbQXShJz3maid58PZzXh52A/pub?gid=0&single=true&output=csv
+
 import { useEffect, useRef, useState } from "react";
 import WebMap from "@arcgis/core/WebMap";
 import MapView from "@arcgis/core/views/MapView";
@@ -7,9 +7,13 @@ import Popup from "@arcgis/core/widgets/Popup";
 import BasemapToggle from "@arcgis/core/widgets/BasemapToggle";
 import { House, Ellipsis, ChevronLeft, ChevronRight } from "lucide-react";
 import Layer from "@arcgis/core/layers/Layer";
+import { PassThrough } from "stream";
+import { Collapsible } from "radix-ui";
+import {LayerCollapse } from "./collapsible";
 
 type Props = {
   id: string;
+  layerData: DataLayer[];
 };
 interface FilterLL {
   name: string;
@@ -20,7 +24,9 @@ interface DataLayer {
   id: string;
   title: string;
   description: string;
-  link: string;
+  links: string[];
+  linkTitles: string[];
+  tags: string[];
   layer: Layer;
 }
 
@@ -81,13 +87,17 @@ const filters: FilterLL = {
   ] 
 }
 
-export default function ArcGISMap({ id }: Props) {
+export default function ArcGISMap({ id, layerData }: Props) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const basemapRef = useRef<HTMLDivElement | null>(null);
 
- const [layers, setLayers] = useState<Layer[]>([]);
-
+ const [layers, setLayers] = useState<DataLayer[]>([]);
+  const isSubFilter = (filter: FilterLL, tags: string[]): boolean => {
+    if (filter.name === "Home") return true;
+    if (tags.some(t => t.toLowerCase() === filter.name.toLowerCase())) return true;
+    return filter.next.some(f => isSubFilter(f, tags));
+  }
   useEffect(() => {
     if (!mapRef.current || !popupRef.current) return;
 
@@ -120,7 +130,27 @@ export default function ArcGISMap({ id }: Props) {
 
     // Wait for map to load layers
     webmap.when(() => {
-      setLayers(webmap.layers.toArray());
+      const mapLayers = webmap.layers.toArray();
+      const unknownLayers: DataLayer[] = [];
+      layerData.forEach((data) => {
+        const layer = mapLayers.find((l) => l.title === data.id);
+        if (layer) {
+          data.layer = layer;
+        } 
+      });
+      mapLayers.filter((l) => !layerData.some((d) => d.id === l.title)).forEach((l) => {
+        unknownLayers.push({
+          id: l.id,
+          title: l.title ? l.title : l.id,
+          description: "",
+          links: [],
+          linkTitles: [],
+          tags: [],
+          layer: l
+        });
+      });
+      setLayers([...layerData, ...unknownLayers]);
+
     });
 
     return () => {
@@ -129,10 +159,12 @@ export default function ArcGISMap({ id }: Props) {
   }, [id]);
 
 
-const toggleLayer = (layer: Layer) => {
-  layer.visible = !layer.visible;
-  setLayers([...layers]); // refresh React UI
+const toggleLayer = (dLayer: DataLayer) => {
+  if (!dLayer.layer) return;
+  dLayer.layer.visible = !dLayer.layer.visible;
+  setLayers([...layers]);
 };
+
 
 const [activeFilter, setActiveFilter] = useState<FilterLL>(filters);
 const [prevFilter, setPrevFilter] = useState<FilterLL[]>([]);
@@ -178,16 +210,19 @@ const [prevFilter, setPrevFilter] = useState<FilterLL[]>([]);
     <div className="flex h-[73vh] w-screen">
       <div className="w-1/5 h-full bg-white p-2 rounded shadow z-10  overflow-auto">
         <div className="font-semibold mb-1">Layers</div>
-          {layers.map((layer) => (
-            <label key={layer.id} className="flex items-center gap-2 text-sm">
-              <input
-              type="checkbox"
-              checked={layer.visible}
-              onChange={() => toggleLayer(layer)}
-            />
-            {layer.title}
-           </label>
-          ))}
+        {layers.filter((l) => isSubFilter(activeFilter, l.tags)).map((dLayer) => (
+        <label key={dLayer.id} className="flex items-center gap-2 text-sm border p-2 h-auto">
+          <input
+            type="checkbox"
+            checked={dLayer.layer?.visible ?? false}
+            disabled={!dLayer.layer}
+            onChange={() => toggleLayer(dLayer)}
+            className="mb-auto mt-2"
+          />
+          <LayerCollapse title={dLayer.title} description={dLayer.description} links={dLayer.links} linkTitles={dLayer.linkTitles}/>
+        </label>
+      ))}
+
       </div>
       <div ref={mapRef} className="flex-1 relative">
         <div ref={popupRef} className={`absolute right-0 bottom-0 w-96 bg-white overflow-scroll max-h-full z-10 rounded-sm border-x-3 border-deep-brown shadow-md`}/>

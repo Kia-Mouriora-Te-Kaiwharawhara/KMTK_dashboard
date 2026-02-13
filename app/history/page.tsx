@@ -7,9 +7,11 @@ import Layer from "@arcgis/core/layers/Layer";
 import Papa, {ParseResult} from 'papaparse';
 import {TextBox} from "@/components/text-box";
 import {DropdownMenuContent, DropdownMenuTrigger, DropdownMenu} from "@/components/ui/dropdown-menu";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import {Checkbox} from "@/components/ui/checkbox";
 import {Button} from "@/components/ui/button";
 import dynamic from "next/dynamic";
+import { ArrowDownUp } from 'lucide-react';
 
 const HistoricMap = dynamic(() => import("../../components/historical-map"), { ssr: false });
 
@@ -55,6 +57,8 @@ type PointFeature = {
     filter?: string;
 };
 
+const dataLink: string = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQx-MJXFVWXP1KqLkkxECQK7Gwiqn9nk_84gM0-6t1MbBH_HolAsf9o223PhgsU77GbRl9twltB9r8M/pub?gid=0&single=true&output=csv"
+
 export default function KMTK() {
 
     const [layers, setLayers] = useState<Layer[]>([]);
@@ -66,12 +70,19 @@ export default function KMTK() {
     // timeline filter states
     const [filters, setFilters] = useState<filterData[]>([]);
 
+    // keeps track of item order
+    const [ascending, setAscending] = useState(true);
+
+    // states for storing current state of elements to be filtered
+    const [currentItems, setCurrentItems] = useState<TimelineElement[]>([]);
+    const [currentPoints, setCurrentPoints] = useState<PointFeature[]>([]);
+
     let id = 0;
 
     useEffect(() => {
 
         async function loadCSV() {
-            const res = await fetch("/timelineData.csv")
+            const res = await fetch(dataLink)
             if (!res.ok) throw new Error(`Failed to fetch CSV: ${res.statusText}`);
             const csv: string = await res.text();
 
@@ -141,15 +152,22 @@ export default function KMTK() {
         loadCSV();
     }, []);
 
+    // sorts the items by date order
+    function sortTimelineItems(items: TimelineElement[]): TimelineElement[] {
+        if(ascending) {
+            items.sort((a, b) => parseInt(a.date) - parseInt(b.date));
+        } else {
+            items.sort((a, b) => parseInt(b.date) - parseInt(a.date));
+        }
 
-    timelineItems.sort((a, b) => parseInt(a.date) - parseInt(b.date));
-    timelineItems.reverse()
+        return items
+    }
+
+    useEffect(() => {
+        setCurrentItems(prev => sortTimelineItems(prev));
+    }, [ascending]);
 
     const [selectedID, setSelectedID] = useState((id - 1).toString());
-
-    // states for storing current state of elements to be filtered
-    const [currentItems, setCurrentItems] = useState<TimelineElement[]>([]);
-    const [currentPoints, setCurrentPoints] = useState<PointFeature[]>([]);
 
     useEffect(() => {
         const tempItems: TimelineElement[] = [];
@@ -162,10 +180,22 @@ export default function KMTK() {
             }
         });
 
-        setCurrentItems(tempItems);
+        setCurrentItems(sortTimelineItems(tempItems));
         setCurrentPoints(tempPoints);
 
-    }, [filters]);
+    }, [filters, ascending]);
+
+    function ScrollToTimelineElement(): void {
+        const container = document.getElementById('timelineScrollArea');
+        if (!container) return;
+        const target = container.querySelector(`[data-timeline-id="${selectedID}"]`) as HTMLElement | null;
+        if (!target) return;
+        target.scrollIntoView({block: 'center', behavior: 'smooth'});
+    }
+
+    useEffect(() => {
+        ScrollToTimelineElement();
+    }, [selectedID]);
 
     return (
         <div className="flex lg:flex-row flex-col w-full h-screen justify-between">
@@ -178,24 +208,31 @@ export default function KMTK() {
                     />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="default" className={"self-center p-3 w-1/10 text-m"}>Filter</Button>
+                            <Button variant="default" className={"self-center p-3 w-1/10 text-m text-vivid-azure hover:underline"}>Filter</Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className={"bg-primary"}>
                             {filters.map((filter: filterData, index) => (
                                 <div key={index} className={"flex flex-row gap-3"}>
-                                    <Checkbox
-                                        className={"bg-primary-tp"}
-                                        checked={filter.active}
-                                        onCheckedChange={() => {
-                                            setFilters(prev =>
-                                                prev.map((f, i) => (i === index ? { ...f, active: !f.active } : f)))
-                                        }}
-                                    />
-                                    <p>{filter.name}</p>
+                                    <Field orientation={"horizontal"} className={"mb-3"}>
+                                        <Checkbox
+                                            className={"border-vivid-azure data-[state=checked]:border-vivid-azure hover:border-vivid-orange data-[state=checked]:hover:border-vivid-orange"}
+                                            checked={filter.active}
+                                            onCheckedChange={() => {
+                                                setFilters(prev =>
+                                                    prev.map((f, i) => (i === index ? { ...f, active: !f.active } : f)))
+                                            }}
+                                        />
+                                        <FieldLabel className={"text-vivid-azure"}>
+                                            {filter.name}
+                                        </FieldLabel>
+                                    </Field>
                                 </div>
                             ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
+                    <Button className={"self-center m-1 hover:bg-nav-blue"} onClick={() => setAscending(!ascending)}>
+                        <ArrowDownUp className={"text-vivid-azure"} />
+                    </Button>
                 </div>
                 <TimelineLayout
                     className={'shadow-black'}
@@ -209,7 +246,7 @@ export default function KMTK() {
             <div className={"lg:w-[40vw] lg:h-full w-full h-[40vh] bg-white place-items-center"}>
                 {/*66be186453d84308b26257021d6fb664*/}
                 <HistoricMap
-                    id={""}
+                    id={"66be186453d84308b26257021d6fb664"}
                     selectedId={selectedID}
                     setSelectedId={setSelectedID}
                     onLayersLoaded={setLayers}
