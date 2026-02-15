@@ -6,6 +6,7 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 import { useState } from 'react';
 import { Squash as Hamburger } from 'hamburger-react';
+import {PageInfoDialog} from "@/components/custom/pageInfo";
 
 function NavBar() {
     const router = useRouter();
@@ -17,7 +18,9 @@ function NavBar() {
                 <Image
                     src="/KMTKDashboardLogo.jpg"
                     alt="Kia Mouriora Te Kaiwharawhara Logo"
-                    onClick={() => router.push("/")}
+                    onClick={() => {
+                        router.push("/")
+                    }}
                     className={"cursor-pointer rounded-md hover:opacity-80 max-h-20 min-w-50"}
                     width={200}
                     height={200}
@@ -29,6 +32,7 @@ function NavBar() {
                     <NavButton route={"/history"} text={"Region History"}></NavButton>
                     <NavButton route={"/get-involved"} text={"Get Involved"}></NavButton>
                     <NavButton route={"/about"} text={"About"}></NavButton>
+                        <PageInfoDialog/>
                     </div>
                     <div className="md:hidden ml-auto m-3">
                         <Hamburger color="#feb41d" toggled={isOpen} toggle={setIsOpen} />
