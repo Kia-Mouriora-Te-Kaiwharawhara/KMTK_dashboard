@@ -22,7 +22,7 @@ export function PageInfoDialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="text-vivid-orange bg-nav-blue m-3 size-auto">
+                <Button className="text-background hover:text-nav-blue bg-nav-blue m-3 size-auto" title={"About this page"}>
                     <CircleQuestionMark className={"size-auto"}/>
                 </Button>
             </DialogTrigger>

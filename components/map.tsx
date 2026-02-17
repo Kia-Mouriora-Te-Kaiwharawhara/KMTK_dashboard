@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import WebMap from "@arcgis/core/WebMap";
 import MapView from "@arcgis/core/views/MapView";
+import Locate from "@arcgis/core/widgets/Locate";
 import Popup from "@arcgis/core/widgets/Popup";
 import BasemapToggle from "@arcgis/core/widgets/BasemapToggle";
 import { House, Ellipsis, ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,6 +11,7 @@ import Layer from "@arcgis/core/layers/Layer";
 import { PassThrough } from "stream";
 import { Collapsible } from "radix-ui";
 import {LayerCollapse } from "./collapsible";
+import "@arcgis/map-components/components/arcgis-locate";
 
 type Props = {
   id: string;
@@ -34,6 +36,7 @@ interface DataLayer {
 export default function ArcGISMap({ id, layerData, filters }: Props) {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
+  const locateRef = useRef<HTMLDivElement | null>(null);
   const basemapRef = useRef<HTMLDivElement | null>(null);
   const trimClass = (name: string): string => {
     const numIndex = name.search('/');
@@ -68,6 +71,11 @@ export default function ArcGISMap({ id, layerData, filters }: Props) {
       map: webmap,
       popup,
       ui: { components: [] },
+    });
+
+    const locate = new Locate({
+      view: view,
+      container: locateRef.current,
     });
 
     const toggle = new BasemapToggle({
@@ -172,7 +180,8 @@ const [prevFilter, setPrevFilter] = useState<FilterLL[]>([]);
       ))}
 
       </div>
-      <div ref={mapRef} className="flex-1 relative">
+      <div ref={mapRef} className="flex-1 relative z-0">
+        <div ref={locateRef} className={'absolute left-2 top-2 bg-nav-blue hover:scale-125'}/>
         <div ref={popupRef} className={`absolute right-0 bottom-0 w-96 bg-white overflow-scroll max-h-full z-10 rounded-sm border-x-3 border-deep-brown shadow-md`}/>
         <div ref={basemapRef} className="" />
       </div>

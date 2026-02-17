@@ -202,7 +202,7 @@ export default function KMTK() {
             <ScrollArea className="lg:w-[60%] lg:h-[100vh] w-full h-[60%]" id={'timelineScrollArea'}>
                 <div className={"flex flex-row"}>
                     <TextBox
-                        text={"History of Reclamation of Te Kaiwharwhara"}
+                        text={"History of Reclamation of Te Kaiwharawhara"}
                         type={"dark"}
                         className={"text-2xl w-8/10"}
                     />

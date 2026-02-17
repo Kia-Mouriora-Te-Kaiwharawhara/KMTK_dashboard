@@ -23,7 +23,7 @@ VariantProps<typeof buttonVariants> & {
                     {...props}
                     variant={"link"}
                     size={"lg"}
-                    className={"text-vivid-orange m-auto"}
+                    className={"text-background m-auto"}
                     onClick={() => router.push(route? route : "/")}>
                     {text}
                 </Button>
