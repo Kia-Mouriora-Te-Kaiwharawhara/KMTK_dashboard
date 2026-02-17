@@ -11,7 +11,6 @@ import Layer from "@arcgis/core/layers/Layer";
 import { PassThrough } from "stream";
 import { Collapsible } from "radix-ui";
 import {LayerCollapse } from "./collapsible";
-import "@arcgis/map-components/components/arcgis-locate";
 
 type Props = {
   id: string;
