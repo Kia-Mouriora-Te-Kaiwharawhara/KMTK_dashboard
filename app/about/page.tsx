@@ -1,6 +1,7 @@
 import { HoverTranslation } from "@/components/hover-translation";
 import {TextBox} from "@/components/text-box";
 import Image from "next/image";
+import {Story} from "@/components/story";
 
 export default function Partners() {
 
@@ -219,6 +220,28 @@ export default function Partners() {
                     </a>
                 ))}
             </div>
+            <Story className="flex-wrap lg:flex-nowrap md:flex-nowrap flex pb-10">
+                <div className={"flex flex-col"}>
+                    <h1 className={"m-3 text-3xl font-bold"}>
+                        A special thanks to Coordinate4u for making this website possible!
+                    </h1>
+                    <div className={"flex flex-wrap lg:flex-nowrap md:flex-nowrap align-top"}>
+                        <a className="mx-3 ml-12 my-auto" href={"https://www.coordinate4u.org/"} target="_blank" >
+                            <Image src={"/partners/Coordinate4U.webp"} alt={"Coordinate 4 U Logo"} width={200} height={200} className={"m-3 rounded-sm align-middle"}/>
+                        </a>
+                        <TextBox className="text-left w-8/10 text-lg"
+                                 type="blue"
+                                 text={"Coordinate4u is a Wellington-based sustainability consultancy that provides environmental and " +
+                                     "waste management advice as well as supporting hands on implementation of waste reduction and " +
+                                     "conservation initiatives. They are dedicated to helping clients achieve their environmental goals " +
+                                     "while promoting sustainable practices. Coordinate4u offers a range of services including benchmarking " +
+                                     "against peers, system reviews and workshop facilitation. They work closely with clients to develop tailored " +
+                                     "solutions that address specific environmental challenges that their clients have control over which help " +
+                                     "these organisations to more efficiently use resources and lower their impact on New Zealand's unique " +
+                                     "biodiversity."}/>
+                    </div>
+                </div>
+            </Story>
         </div>
     );
 }
