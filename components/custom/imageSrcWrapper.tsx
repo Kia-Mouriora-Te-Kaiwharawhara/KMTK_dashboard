@@ -20,7 +20,7 @@ export default function ImageSrcWrapper({
             {overlayText ? (
                 <span
                     className={
-                        `absolute left-2 bottom-2 text-[0.5rem] text-primary/80 p-1 rounded pointer-events-none ` +
+                        `absolute left-2 bottom-2 text-[0.5rem] text-primary/80 p-1 rounded pointer-events-none text-wrap` +
                         (overlayClassName ? ` ${overlayClassName}` : "")
                     }
                 >

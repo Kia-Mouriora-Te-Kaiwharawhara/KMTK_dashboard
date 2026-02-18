@@ -93,6 +93,17 @@ export function HistoryDescription() {
                     alt="map layers"
                     className="self-center border-sea-blue border-8"
                 />
+                <p className={"text-2xl underline pt-3 pb-0"}>Task</p>
+                <p className="text-lg pt-0">
+                    Now that you've learned how this page works, try to solve a quick task!
+                </p>
+                <p className="text-lg pt-0 whitespace-pre-line">
+                    Find the event about the establishment of Otari-Wilton's Bush and Scenic Reserve by:{"\n\n"}
+                    1. Click the filter button and uncheck all filters except for "Restoration"{"\n"}
+                    2. Scroll down the timeline until year 1906{"\n"}
+                    3. Click on the event!
+
+                </p>
 
             </div>
         </ScrollArea>
