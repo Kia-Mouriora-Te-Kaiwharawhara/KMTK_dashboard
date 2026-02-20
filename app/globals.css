@@ -1,23 +1,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
+@font-face {
+  font-family: 'Knockout';
+  src: url('/fonts/Knockout/Knockout-50.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Knockout';
-  src: url('/fonts/knockout-regular.woff2') format('woff2');
+  src: url('/fonts/Knockout/Knockout-60.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Knockout';
+  src: url('/fonts/Knockout/Knockout-70.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Knockout';
-  src: url('/fonts/knockout-bold.woff2') format('woff2');
+  src: url('/fonts/Knockout/Knockout-80.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Knockout';
+  src: url('/fonts/Knockout/Knockout-90.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Knockout';
+  src: url('/fonts/Knockout/Knockout-94.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lato */
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato/Lato-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@custom-variant dark (&:is(.dark *));
+
 
 @theme inline {
   --color-background: var(--background);
@@ -36,64 +93,58 @@
   --color-timeline-icon: var(--timeline-icon);
   --color-deep-brown: var(--deep-brown);
   --color-kowahi-gold: var(--kowahi-gold);
-  --color-vivid-orange: var(--vivid-orange);
+  --color-kaka-60: var(--kaka-60);
+  --color-takahe-60: var(--takahe-60);
+  --color-takahe: var(--takahe);
   --color-vivid-azure: var(--vivid-azure);
-  --color-takahe-teal: var(--takahe-teal);
+  --color-takahe-10: var(--takahe-10); 
+  --font-knockout: var(--font-knockout);
+  --font-geist-sans: var(--font-geist-sans);
+  --font-lato: var(--font-geist-sans);
 }
 
-:root {
+:root { 
   --radius: 0.625rem;
-  --background: #eaede3;
-  --foreground:  #297b8f;
-  --primary: rgb(213, 225, 197);
-  --primary-tp: rgba(213, 225, 197, 0.85);
+  --background: #ffffffff; 
+  --foreground:  #000000;
+  --primary: rgb(255, 255, 255);
+  --primary-tp: rgba(255, 255, 255, 0.947);
   --secondary: #fad4b1;
   --goldenrod: #feb41d;
   --nav-blue: #02414e;
   --sea-blue: #297b8f;
-  --timeline-line: #4F2803;
-  --timeline-icon: #feb41d;
-  --deep-brown: #4F2803;
+  --timeline-line: #401705;
+  --timeline-icon: #feb41d; 
+  --deep-brown: #401705;
   --peanut-butter: #a46f3d;
   --kowahi-gold: rgb(238, 180, 29);
   --forest-green: #4b6f64;
-  --vivid-orange: #f26725;
+  --takahe-60: #08bcc2;
   --vivid-azure: #046aa4;
-  --takahe-teal: #5fc3ce;
+  --takahe: #02414e; 
+  --kaka-60: #f16625;
+  --takahe-10: #e6f2f0;
+  --font-knockout: 'Knockout', sans-serif;
+  --font-geist-sans: 'Lato', sans-serif;
 }
+
+
 
 @layer base {
-  body {
-    @apply bg-background text-foreground font-sans;
+  html {
+    @apply bg-background text-foreground ;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif;
+  body {
+    @apply font-sans text-[1.1rem] leading-relaxed font-normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-knockout tracking-wide leading-tight font-normal;
+  }
+
+  a {
+    @apply text-takahe-60 hover:underline 
   }
 }
 
-.dark {
-  --sidebar: hsl(240 5.9% 10%);
-  --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(224.3 76.3% 48%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
-  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
-
-}
-
-/* @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */

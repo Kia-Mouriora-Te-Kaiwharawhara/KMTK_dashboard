@@ -7,11 +7,11 @@ export default function Partners() {
 
     const strategyGroup = [
         {
-            img: '/partners/Zealandia.webp',
+            img: '/partners/Zealandia.jpg',
             link: 'https://www.visitzealandia.com/'
         },
         {
-            img: '/partners/TaranakiWhanui.png',
+            img: '/partners/TaranakiWhanui.jpg',
             link: 'https://www.pnbst.maori.nz/welcome-to-taranaki-whanui-ki-te-upoko-o-te-ika-port-nicholson-block-settlement-trust/'
         },
         {
@@ -27,15 +27,15 @@ export default function Partners() {
             link: 'https://www.wgtn.ac.nz/'
         },
         {
-            img: '/partners/CentrePort.svg',
+            img: '/partners/CentrePort.jpg',
             link: 'https://www.centreport.co.nz/'
         },
         {
-            img: '/partners/MORPHUM.png',
+            img: '/partners/MORPHUM.jpg',
             link: 'https://www.morphum.com/'
         },
         {
-            img: '/partners/GHD.png',
+            img: '/partners/GHD.jpg',
             link: 'https://www.ghd.com/en-nz'
         },
 
@@ -63,10 +63,10 @@ export default function Partners() {
                 text={"Sanctuary to Sea"}
                 secondaryText={"Kia Mouriora Te Kaiwharawhara"}
                 type={"dark-inline"}
-                className={'text-3xl text-left'}
+                className={'text-3xl text-left mt-0'}
             />
             <TextBox
-                className={'whitespace-break-spaces text-left text-nav-blue text-xl pb-12 rounded-md'}
+                className={'whitespace-break-spaces text-left text-xl pb-12 rounded-md'}
              type="blue"
             >
         
@@ -85,10 +85,10 @@ export default function Partners() {
             <TextBox
                 text={"The Kia Mouriora Te Kaiwharawhara Sanctuary to Sea Strategy"}
                 type={"dark-inline"}
-                className={'text-3xl text-left bg-sea-blue text-secondary'}
+                className={'text-3xl text-left bg-sea-blue text-primary'}
             />
             <TextBox
-                className={'whitespace-break-spaces text-nav-blue text-left text-xl pb-12 rounded-md'}
+                className={'whitespace-break-spaces text-left text-xl pb-12 rounded-md'}
                 type="blue"
             >
                 Kia Mouriora Te Kaiwharawhara Sanctuary to Sea is a whole-of-catchment multi-stakeholder 
@@ -158,8 +158,8 @@ export default function Partners() {
                     className="m-3 md:w-1/9 md:h-1/9  sm:w-5 sm:h-5"
                 />
                 <div>
-                    <h1 className="text-3xl text-vivid-orange m-3">Te Tangata - The People</h1>
-                    <ul className="list-disc text-left text-vivid-orange text-xl m-3 ml-5">
+                    <h1 className="text-3xl text-kaka-60 m-3">Te Tangata - The People</h1>
+                    <ul className="list-disc text-left text-kaka-60 text-xl m-3 ml-5">
                         <li>Start the community on a path to recognize the catchment as a living entity and encourage active involvement in restoration</li>
                         <li>Support mana whenua in reconnecting to Te Kaiwharawhara catchment </li>
                         <li>Ensure our work is exemplory in the area of catchment restoration and provide leadership in urban sustainability</li>
@@ -168,7 +168,7 @@ export default function Partners() {
             </div>
             <p className="text-left text-deep-brown text-xl m-3 pb-3">
                 Want to learn more about Kia Mouriora Te Kaiwharawhara? 
-                Read about the strategy <a href="https://www.visitzealandia.com/about/our-work/sanctuary-to-sea/" target="_blank" className="text-nav-blue hover:underline">here</a>.
+                Read about the strategy <a href="https://www.visitzealandia.com/about/our-work/sanctuary-to-sea/" target="_blank">here</a>.
             </p>
             <TextBox
                 secondaryText={"Kia Mouriora Te Kaiwharwhara Strategy Group"}
@@ -198,9 +198,9 @@ export default function Partners() {
             <TextBox
                 secondaryText={"Key Collaborators"}
                 type={"dark-inline"}
-                className={'text-3xl text-left'}
+                className={'text-3xl text-left mb-0'}
             />
-            <div className="flex flex-row flex-wrap w-full h-1/2 p-6 justify-center self-center">
+            <div className="flex flex-row flex-wrap w-full h-1/2 p-6 justify-center self-center bg-takahe-10">
                 {keyCollaborators.map((partner, index) => (
                     <a
                         href={partner.link}

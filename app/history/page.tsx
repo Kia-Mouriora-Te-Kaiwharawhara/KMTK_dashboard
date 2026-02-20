@@ -207,25 +207,25 @@ export default function KMTK() {
                     <TextBox
                         text={"History of Reclamation of Te Kaiwharawhara"}
                         type={"dark"}
-                        className={"text-2xl w-8/10"}
+                        className={"text-4xl w-7/10 font-knockout tracking-wide rounded-r-md text-left drop-shadow-md"}
                     />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="default" className={"self-center p-3 w-1/10 text-m text-vivid-azure hover:underline"}>Filter</Button>
+                            <Button variant="default" className={"self-center p-3 w-1/10 text-m text-takahe hover:underline"}>Filter</Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className={"bg-primary"}>
                             {filters.map((filter: filterData, index) => (
                                 <div key={index} className={"flex flex-row gap-3"}>
                                     <Field orientation={"horizontal"} className={"mb-3"}>
                                         <Checkbox
-                                            className={"border-vivid-azure data-[state=checked]:border-vivid-azure hover:border-vivid-orange data-[state=checked]:hover:border-vivid-orange"}
+                                            className={"border-takahe-60 data-[state=checked]:border-takahe hover:border-kaka data-[state=checked]:hover:border-kaka"}
                                             checked={filter.active}
                                             onCheckedChange={() => {
                                                 setFilters(prev =>
                                                     prev.map((f, i) => (i === index ? { ...f, active: !f.active } : f)))
                                             }}
                                         />
-                                        <FieldLabel className={"text-vivid-azure"}>
+                                        <FieldLabel className={"text-takahe"}>
                                             {filter.name}
                                         </FieldLabel>
                                     </Field>
@@ -233,8 +233,8 @@ export default function KMTK() {
                             ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
-                    <Button className={"self-center m-1 hover:bg-nav-blue"} onClick={() => setAscending(!ascending)}>
-                        <ArrowDownUp className={"text-vivid-azure"} />
+                    <Button className={"self-center m-1 hover:bg-takahe-10"} onClick={() => setAscending(!ascending)}>
+                        <ArrowDownUp className={"text-takahe"} />
                     </Button>
                 </div>
                 <TimelineLayout

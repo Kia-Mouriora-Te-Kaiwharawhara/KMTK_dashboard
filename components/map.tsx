@@ -11,6 +11,7 @@ import Layer from "@arcgis/core/layers/Layer";
 import { PassThrough } from "stream";
 import { Collapsible } from "radix-ui";
 import {LayerCollapse } from "./collapsible";
+import { Checkbox } from "./ui/checkbox";
 
 type Props = {
   id: string;
@@ -167,14 +168,8 @@ const [prevFilter, setPrevFilter] = useState<FilterLL[]>([]);
       <div className="w-1/5 h-full bg-white p-2 rounded shadow z-10  overflow-auto">
         <div className="font-semibold mb-1">Layers</div>
         {layers.filter((l) => isSubFilter(activeFilter, l.tags)).map((dLayer) => (
-        <label key={dLayer.id} className="flex items-center gap-2 text-sm border p-2 h-auto">
-          <input
-            type="checkbox"
-            checked={dLayer.layer?.visible ?? false}
-            disabled={!dLayer.layer}
-            onChange={() => toggleLayer(dLayer)}
-            className="mb-auto mt-2"
-          />
+        <label key={dLayer.id} className="flex items-center gap-2 text-sm border p-2 h-auto bg-takahe-10">
+          <Checkbox checked={dLayer.layer?.visible ?? false} onCheckedChange={() => toggleLayer(dLayer)} className="mb-auto mt-2 border-2 border-takahe bg-white data-[state=checked]:bg-takahe data-[state=checked]:border-takahe text-white" disabled={!dLayer.layer}/>
           <LayerCollapse title={dLayer.title} description={dLayer.description} links={dLayer.links} linkTitles={dLayer.linkTitles}/>
         </label>
       ))}

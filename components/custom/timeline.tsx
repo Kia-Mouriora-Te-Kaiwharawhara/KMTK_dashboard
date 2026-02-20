@@ -216,7 +216,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                 {/* Content */}
                 <TimelineContent>
                     <TimelineHeader>
-                        <TimelineTitle>{title}</TimelineTitle>
+                        <TimelineTitle className='text-3xl tracking-wide font-normal'>{title}</TimelineTitle>
                     </TimelineHeader>
                     <AnimatePresence initial={false}>
                         {selected && (
@@ -237,7 +237,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                                         <p className={'mb-6'}>
                                             For more information,
                                             <a href={dataSource}
-                                               className={"text-takahe-teal pl-1 hover:underline"}
+                                               className={"text-takahe-60 pl-1 hover:underline"}
                                                target="_blank"
                                                rel="noopener noreferrer">
                                                 read here
@@ -261,7 +261,7 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                                                         className="self-center"
                                                     />
                                                     <a href={sources ? sources[index] : "/"}
-                                                       className={"text-takahe-teal hover:underline"}
+                                                       className={"text-takahe-60 hover:underline"}
                                                        target="_blank"
                                                        rel="noopener noreferrer"
                                                     >Image credit</a>
@@ -446,7 +446,7 @@ const TimelineIcon = ({
         primary: 'bg-primary text-primary-foreground',
         secondary: 'bg-secondary text-secondary-foreground',
         muted: 'bg-muted text-muted-foreground',
-        accent: 'bg-vivid-orange text-accent-foreground', // <- custom color here
+        accent: 'bg-kaka-60 text-accent-foreground', // <- custom color here
         destructive: 'bg-destructive text-destructive-foreground',
     };
 

@@ -11,7 +11,7 @@ import { X } from "lucide-react"
 
 function Footer() {
     return (
-        <div className="w-full bg-deep-brown text-sm flex flex-row justify-bottom-0 justify-center">
+        <div className="w-full bg-deep-brown text-sm flex flex-row justify-bottom-0 justify-center z-50">
             <Drawer
                 direction={'bottom'}
             >

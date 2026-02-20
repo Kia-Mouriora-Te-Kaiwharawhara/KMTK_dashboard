@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors")
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
   content: [
@@ -6,13 +7,20 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {
-      navblue: 'var(--nav-blue)',
-      orange: 'var(--goldenrod)',
-      primarytp: 'var(--primarytp)',
-    },
     extend: {
+      colors: {
+        navblue: "var(--nav-blue)",
+        orange: "var(--goldenrod)",
+        primarytp: "var(--primary-tp)", // you had a typo here
+        takahe: "var(--takahe)",
+        deepbrown: "var(--deep-brown)",
+
+        "zealandia-orange": "#f26422",
+        "nav-blue": "#07454B",
+      },
+
       fontFamily: {
+        knockout: ["Knockout", ...defaultTheme.fontFamily.sans],
         sans: [
           "Lato",
           "ui-sans-serif",
@@ -23,21 +31,19 @@ module.exports = {
           "Arial",
           "sans-serif",
         ],
-        serif: ["Knockout", "serif"],
       },
+
       spacing: {
         128: "32rem",
         144: "36rem",
       },
+
       borderRadius: {
-        '4xl': '2rem',
+        "4xl": "2rem",
       },
-      colors: {
-          "zealandia-orange": "#f26422",
-          "nav-blue": "#07454B",
-      }
-    }
+    },
   },
+
   variants: {
     extend: {
       borderColor: ["focus-visible"],

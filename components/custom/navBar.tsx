@@ -13,7 +13,7 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className={`flex ${isOpen ? "flex-col md:flex-row" : "flex-row"} bg-nav-blue w-full shadow-md`}>
+        <div className={`flex ${isOpen ? "flex-col md:flex-row" : "flex-row"} bg-nav-blue w-full shadow-md z-50`}>
             <div className={"flex flex-row"}>
                 <Image
                     src="/KMTKDashboardLogo.jpg"

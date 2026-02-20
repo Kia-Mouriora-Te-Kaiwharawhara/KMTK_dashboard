@@ -14,7 +14,7 @@ function HoverTranslation({
   return (
     <span className={cn(`cursor-pointer`, className)} {...props}>
       <HoverCard>
-        <HoverCardTrigger><span className={cn("text-m text-peanut-butter hover:underline ")}>{text}</span></HoverCardTrigger>
+        <HoverCardTrigger><span className={cn("text-m hover:underline px-0.5 bg-takahe-10 border-takahe rounded-md border text-foreground")}>{text}</span></HoverCardTrigger>
         <HoverCardContent side="bottom" align="center" className="w-64 p-3 bg-primary-tp border border-sea-blue rounded-md shadow-md">
           <p className="text-sm text-sea-blue">{translations[text.toLowerCase() as keyof typeof translations]}</p>
         </HoverCardContent>

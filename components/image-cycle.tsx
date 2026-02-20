@@ -39,8 +39,8 @@ function ImageCycle({
 } & React.HTMLAttributes<HTMLDivElement>) {
     return (
         <div className={cn(`w-full text-center h-auto p-3`, className)} {...props}>
-            {header && <div className="h-1/10 bg-nav-blue text-center"><h2
-                className="align-middle text-xl font-bold text-primary">{header}</h2></div>}
+            {header && <div className="h-1/10 bg-takahe text-center"><h2
+                className="align-middle text-2xl text-primary p-3">{header}</h2></div>}
             <Carousel opts={{loop: true}} autoplayInterval={3000}>
                 <CarouselContent>
                     {pairs.map((pair, index) => (

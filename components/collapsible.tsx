@@ -23,7 +23,7 @@ export function LayerCollapse({ title, description, links, linkTitles }: { title
           <CollapsibleContent className="flex flex-col items-start gap-2 p-1 pt-0 text-sm">
             {description ? <p>{description}</p> : <p>No description available.</p>}
             {links.map((l, i) => (
-                <a key={l} href={l} className="text-vivid-orange hover:underline">{linkTitles[i] || l}</a>
+                <a key={l} href={l} className="text-kaka-60 hover:underline">{linkTitles[i] || l}</a> 
             ))}
           </CollapsibleContent>
         </Collapsible>

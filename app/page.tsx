@@ -15,7 +15,13 @@ const imagePairs = [
 export default function Home() {
   return (
     <div className="overflow-hidden h-full">
-      <main className="w-full flex-nowrap lg:flex md:flex h-full bg-center bg-cover" style={{ backgroundImage: "url('/stream.avif')", backgroundSize: '100% 100%' }}>
+      <main
+        className="w-full bg-takahe-10 flex-nowrap lg:flex md:flex h-full  px-4 lg:px-8 z-20"
+        style={{ backgroundImage: "url('/pattern_tile.png')", backgroundSize: '12% 24%' }}
+      >
+
+         <div className="absolute inset-0 bg-white/70 z-0"></div> 
+         <div className="z-30 flex">
           <div className="lg:w-1/3 md:w-1/3 sm:w-full">
           <TextBox>
               The Kia Mouriora Te Kaiwharawhara dashboard is designed to display 
@@ -24,7 +30,7 @@ export default function Home() {
               using the navigation bar and learn about the history, health, and conservation
               efforts of the <HoverTranslation text="whaitua"/>. This dashboard was created by a group of university 
               students from Worcester Polytechnic Institute.
-              <p className={`pt-3 text-[0.5rem] text-vivid-azure/80 pointer-events-none`}>
+              <p className={`pt-3 text-[0.5rem] text-takahe-60/80 pointer-events-none`}>
                   Background photo by Zealandia Te Mārā Tāne
               </p>
           </TextBox>
@@ -46,6 +52,7 @@ export default function Home() {
                 a strong cultural and historical connection to Te Kaiwharawhara.
               </p>
           </TextBox>
+        </div>
         </div>
       </main>
     </div>
