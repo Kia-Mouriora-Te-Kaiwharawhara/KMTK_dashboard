@@ -20,7 +20,7 @@ export default function Home() {
         style={{ backgroundImage: "url('/pattern_tile.png')", backgroundSize: '12% 24%' }}
       >
 
-         <div className="absolute inset-0 bg-white/70 z-0"></div> 
+         <div className="bg-takahe-10/70 z-0 h-full">
          <div className="z-30 flex">
           <div className="lg:w-1/3 md:w-1/3 sm:w-full">
           <TextBox>
@@ -54,6 +54,7 @@ export default function Home() {
           </TextBox>
         </div>
         </div>
+        </div> 
       </main>
     </div>
   );
