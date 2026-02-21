@@ -1,3 +1,4 @@
+import ImageSrcWrapper from "@/components/custom/imageSrcWrapper";
 import { HoverTranslation } from "@/components/hover-translation";
 import { ImageCycle } from "@/components/image-cycle";
 import { TextBox } from "@/components/text-box";
@@ -16,31 +17,22 @@ export default function Home() {
   return (
     <div className="overflow-hidden h-full">
       <main
-        className="w-full bg-takahe-10 flex-nowrap lg:flex md:flex h-full  px-4 lg:px-8 z-20"
+        className="w-full bg-takahe-10 flex-col h-full z-20"
         style={{ backgroundImage: "url('/pattern_tile.png')", backgroundSize: '12% 24%' }}
       >
-
-         <div className="bg-takahe-10/70 z-0 h-full">
-         <div className="z-30 flex">
-          <div className="lg:w-1/3 md:w-1/3 sm:w-full">
-          <TextBox>
-              The Kia Mouriora Te Kaiwharawhara dashboard is designed to display 
+          <TextBox className="w-full bg-takahe-10 flex p-0 m-0">
+              <div className="w-3/5 m-auto"><h1 className="text-4xl text-left">Explore Te Kaiwharawhara</h1>
+              <p className=" text-left">This dashboard for Kia Mouriora Te Kaiwharawhara dashboard is designed to display 
               data and information about Te Kaiwharawhara, data is sourced from
               various databases of publicly reported data. Navigate through information 
               using the navigation bar and learn about the history, health, and conservation
               efforts of the <HoverTranslation text="whaitua"/>. This dashboard was created by a group of university 
-              students from Worcester Polytechnic Institute.
-              <p className={`pt-3 text-[0.5rem] text-takahe-60/80 pointer-events-none`}>
-                  Background photo by Zealandia Te Mārā Tāne
-              </p>
+              students from Worcester Polytechnic Institute.</p></div>
+              <ImageSrcWrapper overlayText="Photo by Scott Langdale" overlayClassName="m-0 p-0" wrapperClassName="w-1/3"><img src="/kaka_group.avif" alt="Group of kaka flying" className="max-h-full m-0"/></ImageSrcWrapper>
           </TextBox>
-          <ImageCycle pairs={imagePairs} header="Birds in the Catchment"></ImageCycle>
-        </div>
-        <div className="lg:w-1/3 md:w-1/3 sm:w-full">
-        </div>
-        <div className="lg:w-1/3 md:w-1/3 sm:w-full">
-          <TextBox type="browns" secondaryText="What is a catchment?" className="w-full">
-              <p>A whaitua or catchment describes a geographical area 
+          <div className="flex">
+                      <TextBox type="browns" secondaryText="What is a catchment?" className="w-full m-0 text-left">
+              <div className="m-auto"><p>A whaitua or catchment describes a geographical area 
                 where water collects, bounded by mountains or positioned 
                 in a valley. Whaitua provide biodiverse ecosystems for 
                 species to thrive.
@@ -50,11 +42,11 @@ export default function Home() {
                 Wellington Harbour. It's an important place for Taranaki Whānui 
                 ki Te Upoko o Te Ika, who are <HoverTranslation text="mana whenua"/>. Taranaki Whānui has 
                 a strong cultural and historical connection to Te Kaiwharawhara.
-              </p>
+              </p></div>
           </TextBox>
-        </div>
-        </div>
-        </div> 
+          <ImageCycle pairs={imagePairs} header="Birds in the Catchment" className=" sm:w-full sm:relative max-w-1/3 m-0 p-0 h-full"></ImageCycle>
+
+          </div>
       </main>
     </div>
   );
