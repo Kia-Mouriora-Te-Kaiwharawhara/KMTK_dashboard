@@ -1,4 +1,4 @@
-import { isValidUrl } from "@/lib/utils";
+import { cn, isValidUrl } from "@/lib/utils";
 import React from "react";
 
 interface ImageSrcWrapperProps {
@@ -14,6 +14,7 @@ export default function ImageSrcWrapper({
     wrapperClassName,
     children,
 }: ImageSrcWrapperProps) {
+    if(!overlayText) return (<div className={cn(wrapperClassName)}>{children}</div>);
     return (
         <div className={`relative inline-block ${wrapperClassName ?? ""}`}>
             {children}

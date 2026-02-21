@@ -94,6 +94,7 @@
   --color-deep-brown: var(--deep-brown);
   --color-kowahi-gold: var(--kowahi-gold);
   --color-kaka-60: var(--kaka-60);
+  --color-kaka: var(--kaka);
   --color-takahe-60: var(--takahe-60);
   --color-takahe: var(--takahe);
   --color-vivid-azure: var(--vivid-azure);
@@ -116,6 +117,7 @@
   --timeline-line: #401705;
   --timeline-icon: #feb41d; 
   --deep-brown: #401705;
+  --kaka: #401705;
   --peanut-butter: #a46f3d;
   --kowahi-gold: rgb(238, 180, 29);
   --forest-green: #4b6f64;

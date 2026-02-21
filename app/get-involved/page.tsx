@@ -1,11 +1,11 @@
 'use client';
 
-import {TextBox} from "@/components/text-box";
+import { TextBox } from "@/components/text-box";
 import Image from "next/image";
-import {Story} from "@/components/story";
+import { Story } from "@/components/story";
 import ImageSrcWrapper from "@/components/custom/imageSrcWrapper";
-import {useEffect, useState} from "react";
-import Papa, {ParseResult} from "papaparse";
+import { useEffect, useState } from "react";
+import Papa, { ParseResult } from "papaparse";
 
 interface CsvDataRow {
     Description: string;
@@ -84,32 +84,33 @@ export default function GetInvolved() {
     }, []);
 
     return (
-        data.map((item, index) => {
-            return (
-                <Story key={index} className="flex-wrap lg:flex-nowrap md:flex-nowrap flex pb-10">
-                    <div className={"flex flex-wrap lg:flex-nowrap md:flex-nowrap align-top w-full"}>
-                        <ImageSrcWrapper overlayText={item.ImageCredit} wrapperClassName={"p-3 w-1/3"}>
+        <main>
+            <div className="bg-primary h-auto w-full p-3"><h1 className="text-4xl text-kaka">Contribute to the wellbeing of Te Kaiwharawhara</h1></div>
+            {data.map((item, index) =>
+            ( 
+                <Story key={index} className="flex-wrap lg:flex-nowrap md:flex-nowrap flex m-0 p-0">
+                    <div className={`flex flex-wrap lg:flex-nowrap md:flex-nowrap align-top w-full ${(index % 2) == 0 ? 'bg-takahe-10' : ''}`}>
+                        <ImageSrcWrapper overlayText={item.ImageCredit} wrapperClassName={"p-0 w-1/5"}>
                             <img
                                 src={item.ImageLink}
                                 alt={item.ImageCredit}
-                                className={"self-center w-full"}
+                                className={"self-center max-h-full w-auto"}
                             />
                         </ImageSrcWrapper>
                         <div className={"flex flex-col w-2/3 p-3 justify-center"}>
                             <TextBox
-                                className="text-center w-full text-2xl"
-                                type="browns"
+                                className={`text-center w-full text-xl ${(index % 2) == 0 ? 'bg-takahe-10' : ''}`}
                                 text={item.Description}
                             />
-                            {item.Links.map((link, linkIndex) => (
-                                <a key={linkIndex} className="self-center text-xl hover:underline pb-3" href={link.LinkToDescription} target="_blank">
-                                    {link.LinkName}
-                                </a>
-                            ))}
+                            <div className="flex self-center">
+                                {item.Links.map((link, linkIndex) => (
+                                    <a key={linkIndex} className="text-sm hover:underline" href={link.LinkToDescription} target="_blank">
+                                        {link.LinkName}
+                                    </a>
+                                ))}</div>
                         </div>
                     </div>
                 </Story>
-            );
-        })
-    );
+            ))}
+        </main>)
 }
