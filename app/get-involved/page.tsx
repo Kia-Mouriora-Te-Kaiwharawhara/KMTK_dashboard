@@ -104,7 +104,7 @@ export default function GetInvolved() {
                             />
                             <div className="flex flex-col self-center">
                                 {item.Links.map((link, linkIndex) => (
-                                    <a key={linkIndex} className="text-sm hover:underline pt-3 self-center" href={link.LinkToDescription} target="_blank">
+                                    <a key={linkIndex} className="text-sm hover:underline pt-3 self-center text-center" href={link.LinkToDescription} target="_blank">
                                         {link.LinkName}
                                     </a>
                                 ))}</div>

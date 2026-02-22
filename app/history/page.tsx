@@ -211,7 +211,7 @@ export default function KMTK() {
                     />
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="default" className={"self-center p-3 w-1/10 text-m text-takahe hover:underline"}>Filter</Button>
+                            <Button variant="default" className={"self-center m-3 w-1/10 border text-m text-takahe hover:underline"}>Filter</Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className={"bg-primary"}>
                             {filters.map((filter: filterData, index) => (
@@ -233,7 +233,7 @@ export default function KMTK() {
                             ))}
                         </DropdownMenuContent>
                     </DropdownMenu>
-                    <Button className={"self-center m-1 hover:bg-takahe-10"} onClick={() => setAscending(!ascending)}>
+                    <Button className={"self-center m-1 hover:bg-takahe-10 border"} onClick={() => setAscending(!ascending)}>
                         <ArrowDownUp className={"text-takahe"} />
                     </Button>
                 </div>

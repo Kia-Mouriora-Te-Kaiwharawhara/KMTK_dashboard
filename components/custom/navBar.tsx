@@ -35,7 +35,7 @@ function NavBar() {
                         <PageInfoDialog/>
                     </div>
                     <div className="md:hidden ml-auto m-3">
-                        <Hamburger color="#feb41d" toggled={isOpen} toggle={setIsOpen} />
+                        <Hamburger color="#ffffffff" toggled={isOpen} toggle={setIsOpen} />
                     </div>
 
             </div>

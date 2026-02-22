@@ -47,10 +47,12 @@ export default function Home() {
                 <div className="flex flex-wrap lg:flex-nowrap w-full">
                     <TextBox type="browns" className="w-full bg-takahe-10 text-left m-0">
                         <div className="m-auto"><h1 className="text-4xl text-left">Explore Te Kaiwharawhara</h1>
-                            <p className="text-left">This dashboard for Kia Mouriora Te Kaiwharawhara dashboard is designed
-                                to display data and information about Te Kaiwharawhara. Navigate through information
-                                using the navigation bar and learn about the history, health, and conservation
-                                efforts of the <HoverTranslation text="whaitua"/>. This dashboard was created by a group of
+                            <p className="text-left">This website for Kia Mouriora Te Kaiwharawhara is designed
+                                to display data and information about Te Kaiwharawhara. View this information
+                                using the navigation bar above and learn about the history, health, and conservation
+                                efforts of the <HoverTranslation text="whaitua"/>.
+                                <br/><br/>
+                                This website was created by a group of
                                 university
                                 students from Worcester Polytechnic Institute.</p></div>
                     </TextBox>

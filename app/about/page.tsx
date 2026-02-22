@@ -63,7 +63,7 @@ export default function Partners() {
                 text={"Sanctuary to Sea"}
                 secondaryText={"Kia Mouriora Te Kaiwharawhara"}
                 type={"dark-inline"}
-                className={'text-3xl text-left mt-0'}
+                className={'text-3xl text-left mt-0 flex-wrap lg:flex-nowrap md:flex-nowrap'}
             />
             <TextBox
                 className={'whitespace-break-spaces text-left text-xl pb-12 rounded-md'}
