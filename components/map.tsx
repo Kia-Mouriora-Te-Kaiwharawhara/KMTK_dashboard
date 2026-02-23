@@ -188,7 +188,7 @@ export default function ArcGISMap({ id, layerData, filters }: Props) {
         <div ref={mapRef} className="flex-1 relative z-0">
           <div ref={locateRef} className={'absolute left-2 top-2 bg-nav-blue hover:scale-125'} />
           <div ref={popupRef} className={`absolute right-0 bottom-0 w-96 bg-white overflow-scroll max-h-full z-10 rounded-sm border-x-3 border-deep-brown shadow-md`} />
-          <div ref={basemapRef} className='absolute items-center left-2 top-13 bg-gray-200 w-[5vh] h-[5vh] hover:scale-125 cursor-pointer z-30' />
+          <div ref={basemapRef} className='absolute items-center left-2 top-13 bg-gray-200 w-8 h-8 hover:scale-125 cursor-pointer z-30' />
           <MapIcon color="black" className="w-5 h-5 z-50 pointer-events-none absolute items-center left-3.5 top-14" />
         </div>
         {loading && (
