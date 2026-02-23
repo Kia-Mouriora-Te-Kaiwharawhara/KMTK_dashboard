@@ -275,45 +275,47 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                                     )}
                                 </div>
                                 <div className={'flex flex-row flex-wrap lg:flex-nowrap w-full h-full'}>
-                                {   /* Carousel for historic images */}
-                                    <Carousel className="w-full h-min flex flex-col items-stretch" setApi={setHistoricApi}
-                                        opts={{ watchDrag: false }}
-                                    >
-                                        <h1 className={"self-center"}>Historic Images</h1>
-                                        <div className={"flex flex-row items-center self-center py-0 gap-3"}>
-                                            <CarouselPrevious
-                                                className="self-center"
-                                            />
-                                            <div className="text-muted-foreground py-0 text-center text-sm">
-                                                Image {currentHistoric} of {countHistoric}
+                                    {/* Carousel for historic images */}
+                                    {images && images.length > 0 && (
+                                        <Carousel className="w-full h-min flex flex-col items-stretch" setApi={setHistoricApi}
+                                            opts={{ watchDrag: false }}
+                                        >
+                                            <h1 className={"self-center"}>Historic Images</h1>
+                                            <div className={"flex flex-row items-center self-center py-0 gap-3"}>
+                                                <CarouselPrevious
+                                                    className="self-center"
+                                                />
+                                                <div className="text-muted-foreground py-0 text-center text-sm">
+                                                    Image {currentHistoric} of {countHistoric}
+                                                </div>
+                                                <CarouselNext
+                                                    className="self-center"
+                                                />
                                             </div>
-                                            <CarouselNext
-                                                className="self-center"
-                                            />
-                                        </div>
-                                        <CarouselContent className={'h-auto w-full flex items-stretch'}>
-                                            {images && images.map((img, index) => (
-                                                <CarouselItem key={index}
-                                                    className="h-min w-full flex items-stretch justify-center">
-                                                    <div
-                                                        className={
-                                                            (modernImages && modernImages.length > 0)?
-                                                                cn("w-full h-full place-items-center justify-center flex flex-col"):
-                                                        cn("w-full h-full lg:w-1/2 lg:h-1/2 place-items-center justify-center flex flex-col")
-                                                    }>
+                                            <CarouselContent className={'h-auto w-full flex items-stretch'}>
+                                                {images && images.map((img, index) => (
+                                                    <CarouselItem key={index}
+                                                        className="h-min w-full flex items-stretch justify-center">
+                                                        <div
+                                                            className={
+                                                                (modernImages && modernImages.length > 0)?
+                                                                    cn("w-full h-full place-items-center justify-center flex flex-col"):
+                                                            cn("w-full h-full lg:w-1/2 lg:h-1/2 place-items-center justify-center flex flex-col")
+                                                        }>
 
-                                                        <ImageSrcWrapper overlayText={sources ? sources[index] : ""}>
-                                                            <img
-                                                                src={img}
-                                                                alt={""}
-                                                                className="self-center"
-                                                            />
-                                                        </ImageSrcWrapper>
-                                                    </div>
-                                                </CarouselItem>
-                                            ))}
-                                        </CarouselContent>
-                                    </Carousel>
+                                                            <ImageSrcWrapper overlayText={sources ? sources[index] : ""}>
+                                                                <img
+                                                                    src={img}
+                                                                    alt={""}
+                                                                    className="self-center"
+                                                                />
+                                                            </ImageSrcWrapper>
+                                                        </div>
+                                                    </CarouselItem>
+                                                ))}
+                                            </CarouselContent>
+                                        </Carousel>
+                                    )}
                                     {/* Carousel for modern images */}
                                     {modernImages && modernImages.length > 0 && (
                                         <Carousel className="w-full h-min flex flex-col items-stretch" setApi={setModernApi}
@@ -336,7 +338,11 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
                                                     <CarouselItem key={index}
                                                                   className="h-min w-full flex items-stretch justify-center">
                                                         <div
-                                                            className="w-auto h-auto place-items-center justify-center flex flex-col">
+                                                            className={
+                                                                (images && images.length > 0)?
+                                                                    cn("w-full h-full place-items-center justify-center flex flex-col"):
+                                                                    cn("w-full h-full lg:w-1/2 lg:h-1/2 place-items-center justify-center flex flex-col")
+                                                            }>
 
                                                             <ImageSrcWrapper overlayText={modernSources ? modernSources[index] : ""}>
                                                                 <img

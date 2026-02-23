@@ -43,8 +43,6 @@ interface CsvDataRow {
     filter: string;
     photoLink: string;
     source: string;
-    modernPhotoLink: string;
-    modernSource: string;
     Lat: string;
     Lon: string;
 }
@@ -111,24 +109,24 @@ export default function KMTK() {
                 if (prevItem && prevItem.title === item.DisplayTitle) {
                     // if the current item has the same DisplayTitle as the previous item, add its photo
                     if(!(item.photoLink == "")) {
-                        prevItem.images.push(item.photoLink);
-                        prevItem.sources.push(item.source);
-                    }
-
-                    if(!(item.modernPhotoLink == "")) {
-                        prevItem.modernImages.push(item.modernPhotoLink);
-                        prevItem.modernSources.push(item.modernSource);
+                        if(Number(item.Year) < 2026) {
+                            prevItem.images.push(item.photoLink);
+                            prevItem.sources.push(item.source);
+                        } else {
+                            prevItem.modernImages.push(item.photoLink);
+                            prevItem.modernSources.push(item.source);
+                        }
                     }
 
                 } else {
                     if(!(item.photoLink == "")) {
-                        images.push(item.photoLink);
-                        srcs.push(item.source);
-                    }
-
-                    if(!(item.modernPhotoLink == "")) {
-                        modernImages.push(item.modernPhotoLink);
-                        modernSrcs.push(item.modernSource);
+                        if(Number(item.Year) < 2026) {
+                            images.push(item.photoLink);
+                            srcs.push(item.source);
+                        } else {
+                            modernImages.push(item.photoLink);
+                            modernSrcs.push(item.source);
+                        }
                     }
 
                     // create new timeline element
