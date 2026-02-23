@@ -223,8 +223,8 @@ export default function KMTK() {
     }, [selectedID]);
 
     return (
-        <div className="flex lg:flex-row flex-col w-full h-screen justify-between">
-            <ScrollArea className="lg:w-[70%] lg:h-[100vh] w-full h-[70%]" id={'timelineScrollArea'}>
+        <div className="flex lg:flex-row flex-col w-full h-[83vh] justify-between">
+            <ScrollArea className="lg:w-[70%] lg:h-full w-full h-[70%]" id={'timelineScrollArea'}>
                 <div className={"flex flex-row"}>
                     <TextBox
                         text={"History of Reclamation of Te Kaiwharawhara"}
