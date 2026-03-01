@@ -56,11 +56,11 @@ export default async function Home() {
                             {tb1Node}
                         </div>
                     </TextBox>
-                    <ImageCycle pairs={imagePairs} header={tb2.title}
+                    <ImageCycle pairs={imagePairs} header="Birds in The Catchment"
                         className="w-full lg:w-2/3 m-0 p-0 h-full"></ImageCycle>
                 </div>
                 <div className="flex flex-wrap lg:flex-nowrap w-full">
-                    <TextBox type="browns" secondaryText="What is a catchment?" className="w-full m-0 text-left">
+                    <TextBox type="browns" secondaryText={tb2.title} className="w-full m-0 text-left">
                         <div className="m-auto">
                             {tb2Node}
                         </div>
